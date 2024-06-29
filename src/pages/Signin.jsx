@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signin } from "../features/auth/authSlice";
-import signinIllustration from "../assets/abc.png";
+// import signinIllustration from "../assets/abc.png";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -53,11 +53,11 @@ const Signin = () => {
           <p className="text-red-500 mt-2">{authState.error}</p>
         )}
       </form>
-      <img
+      {/* <img
         src={signinIllustration}
         alt="Signin illustration"
         className="h-auto w-full flex-grow mb-0"
-      />
+      /> */}
     </div>
   );
 };
