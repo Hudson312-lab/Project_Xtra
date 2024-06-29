@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { signup } from '../features/auth/authSlice';
+import { signin } from '../features/auth/authSlice';
 
-const Signup = () => {
+const Signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
@@ -10,19 +10,19 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signup({ email, password }));
+    dispatch(signin({ email, password }));
   };
 
   useEffect(() => {
     if (authState.status === 'succeeded') {
-      console.log('Signup successful');
+      console.log('Signin successful');
     }
   }, [authState.status]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-indigo-100">
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-80">
-        <h2 className="text-2xl font-bold mb-4 text-indigo-700">Sign Up</h2>
+        <h2 className="text-2xl font-bold mb-4 text-indigo-700">Sign In</h2>
         <input
           type="email"
           value={email}
@@ -40,7 +40,7 @@ const Signup = () => {
           required
         />
         <button type="submit" className="w-full bg-indigo-600 text-white p-2 rounded">
-          {authState.status === 'loading' ? 'Loading...' : 'Sign Up'}
+          {authState.status === 'loading' ? 'Loading...' : 'Sign In'}
         </button>
         {authState.error && <p className="text-red-500 mt-2">{authState.error}</p>}
       </form>
@@ -48,4 +48,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Signin;
