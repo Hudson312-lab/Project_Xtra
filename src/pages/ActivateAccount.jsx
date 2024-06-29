@@ -36,7 +36,7 @@ const ActivateAccount = () => {
         <FaCheckCircle className="mr-2" /> Activate your account
       </h2>
       <p className="text-gray-700 mb-4 font-medium">
-        Deposit $10 from your Binance to this address using Binance BEP20 for account activation.
+        Deposit <strong>$10</strong> from your <strong>Binance</strong> to this address using Binance <strong>BEP20</strong> for account activation.
       </p>
       <div className="mb-4">
         <label className="block font-bold mb-2 text-indigo-700">Binance BEP20 Address:</label>
