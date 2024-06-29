@@ -31,7 +31,7 @@ const PasswordReset = () => {
 
   if (!isMobile) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-indigo-100">
+      <div className="min-h-screen flex items-center justify-center ">
         <p className="text-gray-600 font-bold text-xl">
           Please switch to a mobile device for the best experience.
         </p>

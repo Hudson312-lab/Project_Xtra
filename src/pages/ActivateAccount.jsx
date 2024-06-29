@@ -1,4 +1,6 @@
 import { FaCopy, FaEnvelope, FaCheckCircle } from 'react-icons/fa';
+import { isMobile } from 'react-device-detect';
+import { useEffect } from 'react';
 
 const ActivateAccount = () => {
   const address = "bnb1u7tcrsffj4y7v3ysh4rvsz5q6hxjsgfhvllhxz";
@@ -7,6 +9,26 @@ const ActivateAccount = () => {
     navigator.clipboard.writeText(address);
     alert('Address copied to clipboard!');
   };
+
+  useEffect(() => {
+    // Disable scrolling on component mount
+    document.body.style.overflow = 'hidden';
+
+    // Enable scrolling on component unmount
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
+  if (!isMobile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-600 font-bold text-xl">
+          Please switch to a mobile device for the best experience.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-lg min-h-screen mx-auto p-8 bg-white rounded-lg shadow-lg">
@@ -41,7 +63,6 @@ const ActivateAccount = () => {
             <FaEnvelope className="mr-1" /> alphainvestmentone@hotmail.com
           </a>
         </p>
-       
       </div>
       <p className="text-gray-700 mt-6 font-normal">
         Your profile will be activated within 24 hours, in case of any issue, feel free to mail us. We are here to serve you 24/7.
