@@ -46,7 +46,7 @@ const Signup = () => {
         </button>
         {authState.error && <p className="text-red-500 mt-2">{authState.error}</p>}
       </form>
-      <img src={signupIllustration} alt="Signup illustration" className="h-auto w-full mb-0" />
+      <img src={signupIllustration} alt="Signup illustration" className="h-auto w-full flex-grow mb-0" />
     </div>
   );
 };
