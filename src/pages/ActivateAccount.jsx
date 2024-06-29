@@ -56,9 +56,8 @@ const ActivateAccount = () => {
         </div>
       </div>
       <div className="mb-4">
-        <label className="block text-indigo-700 font-bold mb-2">Submit your TRXID and Screenshot:</label>
+        <label className="block text-indigo-700 font-bold mb-2">Submit your Payment TRXID and Screenshot to:</label>
         <p className="w-full p-3 border border-gray-300 rounded-lg bg-gray-100">
-          Send your TRXID and Screenshot to{' '}
           <a href="mailto:alphainvestmentone@hotmail.com?subject=Account%20Activation&body=Please%20find%20attached%20my%20TRXID%20and%20screenshot." className="text-indigo-600 flex items-center font-medium">
             <FaEnvelope className="mr-1" /> alphainvestmentone@hotmail.com
           </a>
