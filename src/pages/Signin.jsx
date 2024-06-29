@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signin } from "../features/auth/authSlice";
-// import signinIllustration from "../assets/abc.png";
+import signinIllustration from "../assets/main.png";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -21,10 +21,10 @@ const Signin = () => {
   }, [authState.status]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center ">
+    <div className="min-h-screen flex flex-col items-center">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded  w-96"
+        className="bg-white p-8 rounded w-96"
       >
         <p className="mb-4 text-gray-600 font-bold text-2xl">Welcome back</p>
         <input
@@ -53,11 +53,11 @@ const Signin = () => {
           <p className="text-red-500 mt-2">{authState.error}</p>
         )}
       </form>
-      {/* <img
+      <img
         src={signinIllustration}
         alt="Signin illustration"
         className="h-auto w-full flex-grow mb-0"
-      /> */}
+      />
     </div>
   );
 };
