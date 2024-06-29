@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
       <div className="text-white text-lg font-bold">Alpha Investments</div>
 <div className="space-x-4">
-     <Link to="/" className="text-white">Home</Link>
+     {/* <Link to="/" className="text-white">Home</Link> */}
  
      </div>
       </div>
