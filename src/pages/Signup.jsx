@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../features/auth/authSlice';
-import signupIllustration from '../assets/abc.png'; // Import the image
+import signupIllustration from '../assets/abc.png'; 
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -21,7 +21,7 @@ const Signup = () => {
   }, [authState.status]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-50">
+    <div className="min-h-screen flex flex-col  bg-gray-50">
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-96">
         <h2 className="text-3xl font-bold mb-6 text-gray-800">Create an account</h2>
         <p className="mb-4 text-gray-600 font-bold">Achieve financial growth and freedom</p>
@@ -46,7 +46,7 @@ const Signup = () => {
         </button>
         {authState.error && <p className="text-red-500 mt-2">{authState.error}</p>}
       </form>
-      <img src={signupIllustration} alt="Signup illustration" className="h-auto w-full" />
+      <img src={signupIllustration} alt="Signup illustration" className="h-auto w-full mb-0" />
     </div>
   );
 };
