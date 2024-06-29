@@ -2,7 +2,7 @@
 import Barcode from 'react-barcode';
 
 const ActivateAccount = () => {
-  // Placeholder Binance BEP20 address
+ 
   const address = "bnb1u7tcrsffj4y7v3ysh4rvsz5q6hxjsgfhvllhxz";
 
   return (
