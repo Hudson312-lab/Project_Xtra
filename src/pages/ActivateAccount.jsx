@@ -29,11 +29,12 @@ const ActivateAccount = () => {
       <p className="text-gray-700 mb-4 font-medium">
         Deposit <strong>10 USDT</strong> from your <strong>Binance</strong> to this address using <strong>TRC20</strong> for account activation.
       </p>
+      <label className="block font-bold mb-2 text-indigo-700">TRC20 Address:</label>
       <div className="mb-4">
         <img src={addressQR} alt="Address QR Code" className="w-full h-auto rounded-lg shadow-md" />
       </div>
       <div className="mb-4">
-        <label className="block font-bold mb-2 text-indigo-700">TRC20 Address:</label>
+        
         <div className="relative">
           <textarea
             readOnly
