@@ -3,7 +3,7 @@ import data from "../assets/data.jpg";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-indigo-200 p-4 flex flex-col items-center">
+    // <div className="min-h-screen bg-indigo-200 p-4 flex flex-col items-center">
       <div className="w-full max-w-md flexflex-col space-y-4">
         <div className="bg-gradient-to-b from-indigo-800 to-indigo-600 shadow-lg rounded-lg overflow-hidden p-4 flex flex-col items-center space-y-4">
           <h2 className="text-3xl text-center font-bold bg-indigo-600 w-full p-2 rounded text-white"> Hamza Tariq</h2>
@@ -57,7 +57,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
