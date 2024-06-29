@@ -46,7 +46,7 @@ const Signin = () => {
         </button>
         {authState.error && <p className="text-red-500 mt-2">{authState.error}</p>}
       </form>
-      <img src={signinIllustration} alt="Signin illustration" className="h-auto w-full mb-0" />
+      <img src={signinIllustration} alt="Signin illustration" className="h-auto w-full flex-grow mb-0" />
     </div>
   );
 };
