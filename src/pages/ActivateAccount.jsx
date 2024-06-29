@@ -57,7 +57,7 @@ const ActivateAccount = () => {
       </div>
       <div className="mb-4">
         <label className="block text-indigo-700 font-bold mb-2">Submit your Payment TRXID and Screenshot to:</label>
-        <p className="w-full p-3 border border-gray-300 rounded-lg bg-gray-100 text-indigo-600 flex items-center font-bold text-base">
+        <p className="w-full p-3 border border-gray-300 rounded-lg bg-gray-100 text-indigo-600 flex items-center font-bold text-lg">
           
              alphainvestmentsone@hotmail.com
 
