@@ -1,12 +1,36 @@
+import  { useEffect } from 'react';
+import { isMobile } from 'react-device-detect';
 import { FaCheckCircle, FaMoneyBillWave, FaChartLine, FaDollarSign, FaPiggyBank } from 'react-icons/fa';
 import data from "../assets/data.jpg";
 
 const Test = () => {
+
+
+  useEffect(() => {
+    // Disable scrolling on component mount
+    document.body.style.overflow = 'hidden';
+
+    // Enable scrolling on component unmount
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
+  if (!isMobile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-600 font-bold text-xl">
+          Please switch to a mobile device for the best experience.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-indigo-200 p-4 flex flex-col items-center">
-      <div className="w-full max-w-md flexflex-col space-y-4">
+      <div className="w-full max-w-md flex flex-col space-y-4">
         <div className="bg-gradient-to-b from-indigo-800 to-indigo-600 shadow-lg rounded-lg overflow-hidden p-4 flex flex-col items-center space-y-4">
-          <h2 className="text-3xl text-center font-bold bg-indigo-600 w-full p-2 rounded text-white"> Muhammad Zubair Rafeeq</h2>
+          <h2 className="text-3xl text-center font-bold bg-indigo-600 w-full p-2 rounded text-white">Muhammad Zubair Rafeeq</h2>
           <div className="w-full flex items-center ml-14">
             <div className="flex items-center space-x-4"> 
               <img
