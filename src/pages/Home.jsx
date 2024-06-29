@@ -30,7 +30,7 @@ const Home = () => {
       <div className="bg-gray-50 p-10 shadow-xl max-w-sm w-full text-center">
         {/* <h2 className="text-3xl font-bold mb-5 text-gray-900">Welcome</h2>
         <p className="text-gray-800 mb-8 font-bold text-2xl">Join us to make more money online</p> */}
-        <p className="text-gray-600 font-medium mb-8">Please register if you are a new user or log in if you have already signed up.</p>
+        <p className="text-gray-600 font-bold mb-8">Please register if you are a new user or log in if you have already signed up.</p>
         <div className="space-y-4">
           <button
             className="w-full py-3 px-5 bg-indigo-600 text-white rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
