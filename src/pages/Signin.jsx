@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signin } from "../features/auth/authSlice";
-import signinIllustration from "../assets/main.png";
+import signinIllustration from "../assets/main.jpg";
 
 const Signin = () => {
   const [email, setEmail] = useState("");

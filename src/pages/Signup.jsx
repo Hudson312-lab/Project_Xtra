@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../features/auth/authSlice";
-import signupIllustration from "../assets/main.png";
+import signupIllustration from "../assets/main.jpg";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
