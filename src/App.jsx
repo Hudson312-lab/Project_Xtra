@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { onAuthStateChanged } from 'firebase/auth';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { auth } from './firebase'; // Ensure you have your Firebase configuration here
+import { auth } from './firebase'; 
 import { setUser } from './features/auth/authSlice';
 import Home from './pages/Home';
 import Navbar from './componenets/Navbar';
