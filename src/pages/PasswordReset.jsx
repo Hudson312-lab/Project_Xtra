@@ -41,7 +41,7 @@ const PasswordReset = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center  bg-gray-50">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-96">
+      <form onSubmit={handleSubmit} className="bg-white p-8 rounded  w-96">
         <p className="mb-4 text-gray-600 font-bold text-2xl">Reset Password</p>
         <input
           type="email"
