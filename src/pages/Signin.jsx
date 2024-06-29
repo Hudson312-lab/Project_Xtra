@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signin } from '../features/auth/authSlice';
+import signinIllustration from '../assets/xyz.png'; 
 
 const Signin = () => {
   const [email, setEmail] = useState('');
@@ -20,15 +21,16 @@ const Signin = () => {
   }, [authState.status]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-indigo-100">
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-80">
-        <h2 className="text-2xl font-bold mb-4 text-indigo-700">Sign In</h2>
+    <div className="min-h-screen flex flex-col  bg-gray-50">
+      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-96">
+        <h2 className="text-3xl font-bold mb-6 text-gray-800">Sign In to your account</h2>
+        <p className="mb-4 text-gray-600 font-bold">Access your account and continue your journey</p>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
-          className="mb-4 p-2 w-full border border-indigo-300 rounded"
+          className="mb-4 p-3 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
           required
         />
         <input
@@ -36,14 +38,15 @@ const Signin = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          className="mb-4 p-2 w-full border border-indigo-300 rounded"
+          className="mb-4 p-3 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
           required
         />
-        <button type="submit" className="w-full bg-indigo-600 text-white p-2 rounded">
+        <button type="submit" className="w-full bg-indigo-600 text-white p-3 rounded hover:bg-indigo-700 font-semibold">
           {authState.status === 'loading' ? 'Loading...' : 'Sign In'}
         </button>
         {authState.error && <p className="text-red-500 mt-2">{authState.error}</p>}
       </form>
+      <img src={signinIllustration} alt="Signin illustration" className="h-auto w-full mb-0" />
     </div>
   );
 };
