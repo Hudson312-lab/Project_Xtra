@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signin } from "../features/auth/authSlice";
 import signinIllustration from "../assets/main.jpg";
+import { isMobile } from "react-device-detect";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -29,6 +30,16 @@ const Signin = () => {
       document.body.style.overflow = 'auto';
     };
   }, []);
+
+  if (!isMobile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-600 font-bold text-xl">
+          Please switch to a mobile device for the best experience.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col items-center">
