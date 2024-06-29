@@ -43,7 +43,7 @@ const PasswordReset = () => {
   return (
     <div className="relative min-h-screen flex flex-col items-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${resetIllustration})` }}>
       <div className="absolute inset-0 bg-black opacity-50 blur-sm"></div>
-      <div className="relative z-10 p-8 bg-white bg-opacity-75 rounded w-96">
+      <div className="relative z-10 p-8 bg-white bg-opacity-75 rounded w-96 mt-2">
         <form onSubmit={handleSubmit} className="flex flex-col">
           <p className="mb-4 text-gray-600 font-bold text-2xl">Reset Password</p>
           <input
