@@ -4,7 +4,7 @@ import logo from '../assets/logo.png'; // Adjust the path based on your project 
 
 const Navbar = () => {
   return (
-    <nav className="bg-gradient-to-r from-indigo-500 via-indigo-600 to-indigo-700 p-4">
+    <nav className="bg-gradient-to-r from-indigo-500 via-indigo-600 to-indigo-700 p-2">
       <div className="container mx-auto flex justify-between items-center">
         <div>
           <img src={logo} alt="Alpha Investments Logo" className="h-10" /> {/* Adjust the height as needed */}
