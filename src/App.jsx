@@ -4,6 +4,7 @@ import Navbar from './componenets/Navbar';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import PasswordReset from './pages/PasswordReset';
+import ActivateAccount from './pages/ActivateAccount';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/passwordreset" element={<PasswordReset />} />
+        <Route path="/activate" element={<ActivateAccount />} />
       </Routes>
     </Router>
   );
