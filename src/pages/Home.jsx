@@ -1,7 +1,29 @@
 import { useNavigate } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
+import  { useEffect } from 'react';
 
 const Home = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Disable scrolling on component mount
+    document.body.style.overflow = 'hidden';
+
+    // Enable scrolling on component unmount
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
+  if (!isMobile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-600 font-bold text-xl">
+          Please switch to a mobile device for the best experience.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex justify-center">
