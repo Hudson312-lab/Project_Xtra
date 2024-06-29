@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { signin } from "../features/auth/authSlice";
 import signinIllustration from "../assets/main.jpg";
 import { isMobile } from "react-device-detect";
@@ -9,10 +10,15 @@ const Signin = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const authState = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(signin({ email, password }));
+  };
+
+  const handleForgotPassword = () => {
+    navigate("/passwordreset");
   };
 
   useEffect(() => {
@@ -73,6 +79,13 @@ const Signin = () => {
         {authState.error && (
           <p className="text-red-500 mt-2">{authState.error}</p>
         )}
+        <button
+          type="button"
+          onClick={handleForgotPassword}
+          className="text-indigo-600 mt-4 hover:underline w-full text-center font-bold"
+        >
+          Forgot Password?
+        </button>
       </form>
       <img
         src={signinIllustration}
