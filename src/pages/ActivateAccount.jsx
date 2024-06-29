@@ -31,7 +31,7 @@ const ActivateAccount = () => {
   }
 
   return (
-    <div className="max-w-lg min-h-screen mx-auto p-8 bg-white rounded-lg shadow-lg">
+    <div className="max-w-lg min-h-screen mx-auto p-8  bg-gray-50 rounded-lg shadow-lg">
       <h2 className="text-2xl font-extrabold mb-6 text-indigo-700 flex items-center">
         <FaCheckCircle className="mr-2" /> Activate your account
       </h2>
