@@ -54,7 +54,7 @@ const Signin = () => {
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded w-96"
       >
-        <p className="mb-4 text-gray-600 font-bold text-2xl">Welcome back</p>
+        <p className="mb-4 text-gray-700 font-bold text-2xl">Welcome back !</p>
         <input
           type="email"
           value={email}
