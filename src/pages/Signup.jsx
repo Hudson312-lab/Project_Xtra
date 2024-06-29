@@ -25,10 +25,10 @@ const Signup = () => {
   }, [authState.status, navigate]);
 
   useEffect(() => {
-    // Disable scrolling on component mount
+    
     document.body.style.overflow = 'hidden';
 
-    // Enable scrolling on component unmount
+    
     return () => {
       document.body.style.overflow = 'auto';
     };
