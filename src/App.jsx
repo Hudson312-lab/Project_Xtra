@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { auth } from './firebase'; // Ensure you have your Firebase configuration here
 import { setUser } from './features/auth/authSlice';
 import Home from './pages/Home';
-import Navbar from './components/Navbar';
+import Navbar from './componenets/Navbar';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import PasswordReset from './pages/PasswordReset';
