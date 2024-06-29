@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../features/auth/authSlice";
 import signupIllustration from "../assets/main.jpg";
 import { isMobile } from "react-device-detect";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const authState = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,8 +20,9 @@ const Signup = () => {
   useEffect(() => {
     if (authState.status === "succeeded") {
       console.log("Signup successful");
+      navigate("/activate");
     }
-  }, [authState.status]);
+  }, [authState.status, navigate]);
 
   useEffect(() => {
     // Disable scrolling on component mount
