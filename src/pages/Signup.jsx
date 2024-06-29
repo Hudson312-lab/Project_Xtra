@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../features/auth/authSlice";
-import signupIllustration from "../assets/abc.png";
+// import signupIllustration from "../assets/abc.png";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -20,18 +20,18 @@ const Signup = () => {
     }
   }, [authState.status]);
 
-  useEffect(() => {
-    // Disable scrolling on component mount
-    document.body.style.overflow = 'hidden';
+  // useEffect(() => {
+  //   // Disable scrolling on component mount
+  //   document.body.style.overflow = 'hidden';
 
-    // Enable scrolling on component unmount
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
+  //   // Enable scrolling on component unmount
+  //   return () => {
+  //     document.body.style.overflow = 'auto';
+  //   };
+  // }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-indigo-500">
+    <div className="min-h-screen flex flex-col items-center">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded shadow-md w-96"
@@ -65,11 +65,11 @@ const Signup = () => {
           <p className="text-red-500 mt-2">{authState.error}</p>
         )}
       </form>
-      <img
+      {/* <img
         src={signupIllustration}
         alt="Signup illustration"
         className="h-auto w-full flex-grow mb-0"
-      />
+      /> */}
     </div>
   );
 };
