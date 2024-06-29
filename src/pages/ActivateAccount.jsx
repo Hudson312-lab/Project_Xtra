@@ -5,7 +5,7 @@ const ActivateAccount = () => {
 
   return (
     <div className="max-w-lg min-h-screen mx-auto p-8 bg-white rounded-lg">
-      <h2 className="text-2xl font-bold mb-6 text-indigo-700">Activate your account</h2>
+      <h2 className="text-2xl font-bold text-2xl mb-6 text-indigo-700">Activate your account</h2>
       <p className="text-gray-700 mb-4 font-medium">
         Deposit $10 from your Binance to this address using Binance BEP20 for account activation.
       </p>
