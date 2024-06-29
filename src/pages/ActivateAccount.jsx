@@ -29,7 +29,7 @@ const ActivateAccount = () => {
             onClick={handleCopyAddress}
             className="absolute top-1/2 right-3 transform -translate-y-1/2 text-indigo-700"
           >
-            <FaCopy />
+            <FaCopy className='mt-6 h-12' />
           </button>
         </div>
       </div>
