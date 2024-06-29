@@ -20,15 +20,15 @@ const Signup = () => {
     }
   }, [authState.status]);
 
-  // useEffect(() => {
-  //   // Disable scrolling on component mount
-  //   document.body.style.overflow = 'hidden';
+  useEffect(() => {
+    // Disable scrolling on component mount
+    document.body.style.overflow = 'hidden';
 
-  //   // Enable scrolling on component unmount
-  //   return () => {
-  //     document.body.style.overflow = 'auto';
-  //   };
-  // }, []);
+    // Enable scrolling on component unmount
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col items-center">
