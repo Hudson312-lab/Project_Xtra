@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-indigo-500 via-indigo-600 to-indigo-700 p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div>
-          <img src={logo} alt="Alpha Investments Logo" className="h-20" /> {/* Adjust the height as needed */}
+          <img src={logo} alt="Alpha Investments Logo" className="h-10" /> {/* Adjust the height as needed */}
         </div>
         <div className="space-x-4">
           {/* <Link to="/" className="text-white">Home</Link> */}
