@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetPassword } from '../features/auth/authSlice';
 import { isMobile } from 'react-device-detect';
-import resetIllustration from "../assets/reset.jpg"; // Assuming you have an illustration for the reset page
+import resetIllustration from "../assets/main.jpg"; // Assuming you have an illustration for the reset page
 
 const PasswordReset = () => {
   const [email, setEmail] = useState('');
