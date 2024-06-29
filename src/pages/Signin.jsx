@@ -22,6 +22,12 @@ const Signin = () => {
   };
 
   useEffect(() => {
+    if (authState.user) {
+      navigate("/activate");
+    }
+  }, [authState.user, navigate]);
+
+  useEffect(() => {
     if (authState.status === "succeeded") {
       console.log("Signin successful");
       navigate("/activate");
@@ -53,7 +59,7 @@ const Signin = () => {
       <div className="absolute inset-0 bg-black opacity-60 blur-sm"></div>
       <div className="relative z-10 p-8 bg-white bg-opacity-75 rounded w-96 mt-2">
         <form onSubmit={handleSubmit} className="flex flex-col">
-          <p className="mb-4 text-gray-600 font-bold text-2xl">Welcome back !</p>
+          <p className="mb-4 text-gray-600 font-bold text-2xl">Welcome back!</p>
           <input
             type="email"
             value={email}

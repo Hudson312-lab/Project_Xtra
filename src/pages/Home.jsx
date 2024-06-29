@@ -1,10 +1,22 @@
 import { useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import signupIllustration from '../assets/main.jpg';
 
 const Home = () => {
   const navigate = useNavigate();
+  const authState = useSelector((state) => state.auth);
+  const [notification, setNotification] = useState("");
+
+  useEffect(() => {
+    if (authState.user) {
+      setNotification("You are already logged in.");
+      setTimeout(() => {
+        navigate("/activate");
+      }, 2000); // Redirect after 2 seconds
+    }
+  }, [authState.user, navigate]);
 
   useEffect(() => {
     // Disable scrolling on component mount
@@ -30,6 +42,7 @@ const Home = () => {
     <div className="relative min-h-screen flex flex-col items-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${signupIllustration})` }}>
       <div className="absolute inset-0 bg-black opacity-60 backdrop-filter backdrop-blur-md"></div>
       <div className="relative z-10 p-10 bg-white bg-opacity-10 rounded max-w-sm w-full text-center mb-8 mt-2 shadow-lg backdrop-filter backdrop-blur-lg">
+        {notification && <p className="text-red-500 mb-4">{notification}</p>}
         <p className="text-white font-bold mb-8">
           Please register if you are a new user or log in if you have already signed up.
         </p>

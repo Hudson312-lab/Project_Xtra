@@ -18,6 +18,12 @@ const Signup = () => {
   };
 
   useEffect(() => {
+    if (authState.user) {
+      navigate("/activate");
+    }
+  }, [authState.user, navigate]);
+
+  useEffect(() => {
     if (authState.status === "succeeded") {
       console.log("Signup successful");
       navigate("/activate");
