@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signin } from '../features/auth/authSlice';
-import signinIllustration from '../assets/xyz.png'; 
+import signinIllustration from '../assets/abc.png'; 
 
 const Signin = () => {
   const [email, setEmail] = useState('');
@@ -23,8 +23,8 @@ const Signin = () => {
   return (
     <div className="min-h-screen flex flex-col  bg-gray-50">
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-96">
-        <h2 className="text-3xl font-bold mb-6 text-gray-800">Sign In to your account</h2>
-        <p className="mb-4 text-gray-600 font-bold">Access your account and continue your journey</p>
+        {/* <h2 className="text-3xl font-bold mb-6 text-gray-800">Sign In to your account</h2> */}
+        <p className="mb-4 text-gray-600 font-bold text-2xl">Welcome back</p>
         <input
           type="email"
           value={email}

@@ -21,10 +21,10 @@ const Signup = () => {
   }, [authState.status]);
 
   return (
-    <div className="min-h-screen flex flex-col  bg-gray-50">
+    <div className="min-h-screen flex flex-col items-center bg-gray-50">
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-96">
-        <h2 className="text-3xl font-bold mb-6 text-gray-800">Create an account</h2>
-        <p className="mb-4 text-gray-600 font-bold">Achieve financial growth and freedom</p>
+        {/* <h2 className="text-3xl font-bold mb-6 text-gray-800">Create an account</h2> */}
+        <p className="mb-4 text-gray-600 font-bold text-2xl">Create an account</p>
         <input
           type="email"
           value={email}
