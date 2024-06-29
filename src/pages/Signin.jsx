@@ -1,14 +1,25 @@
-import { FaCopy, FaEnvelope, FaCheckCircle } from 'react-icons/fa';
-import { isMobile } from 'react-device-detect';
-import { useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { signin } from "../features/auth/authSlice";
+import signinIllustration from "../assets/main.jpg";
+import { isMobile } from "react-device-detect";
 
-const ActivateAccount = () => {
-  const address = "bnb1u7tcrsffj4y7v3ysh4rvsz5q6hxjsgfhvllhxz";
+const Signin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const authState = useSelector((state) => state.auth);
 
-  const handleCopyAddress = () => {
-    navigator.clipboard.writeText(address);
-    alert('Address copied to clipboard!');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(signin({ email, password }));
   };
+
+  useEffect(() => {
+    if (authState.status === "succeeded") {
+      console.log("Signin successful");
+    }
+  }, [authState.status]);
 
   useEffect(() => {
     // Disable scrolling on component mount
@@ -22,7 +33,7 @@ const ActivateAccount = () => {
 
   if (!isMobile) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center">
         <p className="text-gray-600 font-bold text-xl">
           Please switch to a mobile device for the best experience.
         </p>
@@ -31,44 +42,45 @@ const ActivateAccount = () => {
   }
 
   return (
-    <div className="max-w-lg min-h-screen mx-auto p-8 bg-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-extrabold mb-6 text-indigo-700 flex items-center">
-        <FaCheckCircle className="mr-2" /> Activate your account
-      </h2>
-      <p className="text-gray-700 mb-4 font-medium">
-        Deposit $10 from your Binance to this address using Binance BEP20 for account activation.
-      </p>
-      <div className="mb-4">
-        <label className="block font-bold mb-2 text-indigo-700">Binance BEP20 Address:</label>
-        <div className="relative">
-          <textarea
-            readOnly
-            className="w-full p-3 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none"
-            value={address}
-            onFocus={(e) => e.target.select()}
-          />
-          <button
-            onClick={handleCopyAddress}
-            className="absolute top-1/2 right-3 transform -translate-y-1/2 text-indigo-700"
-          >
-            <FaCopy className='mt-6 h-12' />
-          </button>
-        </div>
-      </div>
-      <div className="mb-4">
-        <label className="block text-indigo-700 font-bold mb-2">Submit your TRXID and Screenshot:</label>
-        <p className="w-full p-3 border border-gray-300 rounded-lg bg-gray-100">
-          Send your TRXID and Screenshot to{' '}
-          <a href="mailto:alphainvestmentone@hotmail.com?subject=Account%20Activation&body=Please%20find%20attached%20my%20TRXID%20and%20screenshot." className="text-indigo-600 flex items-center">
-            <FaEnvelope className="mr-1" /> alphainvestmentone@hotmail.com
-          </a>
-        </p>
-      </div>
-      <p className="text-gray-700 mt-6 font-normal">
-        Your profile will be activated within 24 hours, in case of any issue, feel free to mail us. We are here to serve you 24/7.
-      </p>
+    <div className="min-h-screen flex flex-col items-center">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded w-96"
+      >
+        <p className="mb-4 text-gray-600 font-bold text-2xl">Welcome back</p>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          className="mb-4 p-3 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          required
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          className="mb-4 p-3 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          required
+        />
+        <button
+          type="submit"
+          className="w-full bg-indigo-600 text-white p-3 rounded hover:bg-indigo-700 font-semibold"
+        >
+          {authState.status === "loading" ? "Loading..." : "Sign In"}
+        </button>
+        {authState.error && (
+          <p className="text-red-500 mt-2">{authState.error}</p>
+        )}
+      </form>
+      <img
+        src={signinIllustration}
+        alt="Signin illustration"
+        className="h-auto w-full flex-grow mb-0"
+      />
     </div>
   );
 };
 
-export default ActivateAccount;
+export default Signin;
