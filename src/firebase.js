@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAnalytics } from "firebase/analytics";
@@ -21,5 +21,14 @@ const auth = getAuth(firebase);
 const db = getFirestore(firebase);
 const storage = getStorage(firebase);
 const analytics = getAnalytics(firebase);
+
+// Set auth persistence
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    console.log("Auth state persistence set to local storage");
+  })
+  .catch((error) => {
+    console.error("Error setting auth persistence:", error);
+  });
 
 export { analytics, auth, db, storage, firebase };

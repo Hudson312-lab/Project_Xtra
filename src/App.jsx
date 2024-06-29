@@ -1,6 +1,11 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { onAuthStateChanged } from 'firebase/auth';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { auth } from './firebase'; // Ensure you have your Firebase configuration here
+import { setUser } from './features/auth/authSlice';
 import Home from './pages/Home';
-import Navbar from './componenets/Navbar';
+import Navbar from './components/Navbar';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import PasswordReset from './pages/PasswordReset';
@@ -8,6 +13,20 @@ import ActivateAccount from './pages/ActivateAccount';
 import Test from './pages/Test';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(setUser(user));
+      } else {
+        dispatch(setUser(null));
+      }
+    });
+
+    return () => unsubscribe();
+  }, [dispatch]);
+
   return (
     <Router>
       <Navbar />
