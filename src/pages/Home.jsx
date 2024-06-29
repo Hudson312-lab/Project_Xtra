@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
-import  { useEffect } from 'react';
+import { useEffect } from 'react';
+import signupIllustration from '../assets/main.jpg';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -26,17 +27,17 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen flex justify-center">
-      <div className="bg-gray-50 p-10 shadow-xl max-w-sm w-full text-center">
-        {/* <h2 className="text-3xl font-bold mb-5 text-gray-900">Welcome</h2>
-        <p className="text-gray-800 mb-8 font-bold text-2xl">Join us to make more money online</p> */}
-        <p className="text-gray-800 font-bold mb-8">Please register if you are a new user or log in if you have already signed up.</p>
+    <div className="min-h-screen flex flex-col items-center bg-gray-50">
+      <div className="bg-gray-50 p-10  max-w-sm w-full text-center mb-8">
+        <p className="text-gray-800 font-bold mb-8">
+          Please register if you are a new user or log in if you have already signed up.
+        </p>
         <div className="space-y-4">
           <button
             className="w-full py-3 px-5 bg-indigo-600 text-white rounded-md shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
             onClick={() => navigate('/signup')}
           >
-            Register 
+            Register
           </button>
           <button
             className="w-full py-3 px-5 bg-gray-400 text-gray-800 rounded-md shadow-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50"
@@ -46,6 +47,11 @@ const Home = () => {
           </button>
         </div>
       </div>
+      <img
+        src={signupIllustration}
+        alt="Signup illustration"
+        className="h-auto w-full flex-grow mb-0"
+      />
     </div>
   );
 };
