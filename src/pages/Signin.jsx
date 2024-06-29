@@ -24,8 +24,9 @@ const Signin = () => {
   useEffect(() => {
     if (authState.status === "succeeded") {
       console.log("Signin successful");
+      navigate("/activate");
     }
-  }, [authState.status]);
+  }, [authState.status, navigate]);
 
   useEffect(() => {
     // Disable scrolling on component mount
