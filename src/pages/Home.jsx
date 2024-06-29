@@ -28,9 +28,9 @@ const Home = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${signupIllustration})` }}>
-      <div className="absolute inset-0 bg-black opacity-60 blur-sm"></div>
-      <div className="relative z-10 p-10 bg-white bg-opacity-75 rounded max-w-sm w-full text-center mb-8 mt-2">
-        <p className="text-gray-800 font-bold mb-8">
+      <div className="absolute inset-0 bg-black opacity-60 backdrop-filter backdrop-blur-md"></div>
+      <div className="relative z-10 p-10 bg-white bg-opacity-10 rounded max-w-sm w-full text-center mb-8  shadow-lg backdrop-filter backdrop-blur-lg">
+        <p className="text-white font-bold mb-8">
           Please register if you are a new user or log in if you have already signed up.
         </p>
         <div className="space-y-4">
