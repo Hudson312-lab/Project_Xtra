@@ -29,7 +29,7 @@ const Home = () => {
     <div className="min-h-screen flex justify-center">
       <div className="bg-white p-10 shadow-xl max-w-sm w-full text-center">
         <h2 className="text-3xl font-bold mb-5 text-gray-900">Welcome</h2>
-        <p className="text-gray-800 mb-8 font-bold">Join us to make more money online</p>
+        <p className="text-gray-800 mb-8 font-bold text-2xl">Join us to make more money online</p>
         <p className="text-gray-600 font-medium mb-8">Please register if you are a new user or log in if you have already signed up.</p>
         <div className="space-y-4">
           <button
