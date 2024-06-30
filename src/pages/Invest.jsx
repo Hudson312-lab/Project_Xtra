@@ -8,13 +8,11 @@ import { isMobile } from "react-device-detect";
 
 const InvestPage = () => {
   const [isLoading, setIsLoading] = useState(true);
-
   const [investment, setInvestment] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const auth = getAuth();
   const firestore = getFirestore();
-
   const address = "TTsencRWSr3qioVVjb6BPQ4ACLGvgUuTqk";
 
   useEffect(() => {
@@ -22,7 +20,7 @@ const InvestPage = () => {
       if (user) {
         setIsLoading(false);
       } else {
-        navigate("/"); 
+        navigate("/");
       }
     });
 
@@ -58,6 +56,7 @@ const InvestPage = () => {
         );
         setInvestment("");
         setError("");
+        navigate("/profile"); // Navigate to the profile page
       }
     } catch (error) {
       console.error("Error saving investment:", error);
@@ -83,7 +82,7 @@ const InvestPage = () => {
 
   return (
     <div className="max-w-lg min-h-screen mx-auto p-8 bg-white rounded-lg shadow-lg">
-     <h2 className="text-2xl font-extrabold mb-4 text-indigo-700 flex items-center">
+      <h2 className="text-2xl font-extrabold mb-4 text-indigo-700 flex items-center">
         <FaCheckCircle className="mr-2" /> Make an Investment
       </h2>
       <h3 className="text-xl font-extrabold mb-4 text-gray-900 flex border-b-2 border-indigo-700 pb-2">
