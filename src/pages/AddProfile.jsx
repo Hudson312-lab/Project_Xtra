@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { setDoc, doc, getDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -16,6 +17,7 @@ function UserProfile() {
   const [uid, setUid] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
   const [pictureUrl, setPictureUrl] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -39,18 +41,20 @@ function UserProfile() {
         } catch (error) {
           console.error("Error fetching user data:", error);
         }
+      } else {
+        navigate('/'); // Redirect to home page if not authenticated
       }
       setLoading(false);
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [navigate]);
 
   const handleClick = async () => {
     if (user) {
       try {
         const profileData = {
-          uid, // Include the user's UID
+          uid, 
           username,
           binanceId,
           trc20Address,

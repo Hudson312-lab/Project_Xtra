@@ -26,7 +26,7 @@ const ActivateAccount = () => {
         }
       } else {
         setUserInfo({ uid: '', email: '' });
-        navigate('/login'); // Redirect to login if needed
+        navigate('/'); // Redirect to home page if not authenticated
       }
     });
 
