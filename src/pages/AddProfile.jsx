@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { setDoc, doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
 function UserProfile() {
@@ -41,13 +41,38 @@ function UserProfile() {
     return () => unsubscribe();
   }, []);
 
+  const handleClick = async () => {
+    if (user) {
+      try {
+        await setDoc(
+          doc(db, "profiles", uid),
+          {
+            username,
+            binanceId,
+            trc20Address,
+            referralUid,
+            country,
+            investment: 0,
+            roi: 0,
+            affiliateEarnings: 0,
+            totalEarnings: 0,
+            withdrawals: 0,
+          },
+          { merge: true }
+        );
+      } catch (error) {
+        console.error("Error updating profile:", error.message);
+      }
+    }
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="flex flex-col items-center p-6">
-      <h2 className="font-bold mt-6 mb-6">Profile Details</h2>
+      <h2 className="font-bold mt-6 mb-6">Add Your Details</h2>
       <form className="w-full max-w-lg">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3 mb-6 md:mb-0">
@@ -59,7 +84,6 @@ function UserProfile() {
               type="text"
               value={username}
               placeholder="Enter username"
-              disabled={!!username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
@@ -73,7 +97,6 @@ function UserProfile() {
               type="text"
               value={binanceId}
               placeholder="Enter Binance ID"
-              disabled={!!binanceId}
               onChange={(e) => setBinanceId(e.target.value)}
               required
             />
@@ -87,7 +110,6 @@ function UserProfile() {
               type="text"
               value={trc20Address}
               placeholder="Enter TRC20 Address"
-              disabled={!!trc20Address}
               onChange={(e) => setTrc20Address(e.target.value)}
               required
             />
@@ -101,7 +123,6 @@ function UserProfile() {
               type="text"
               value={referralUid}
               placeholder="Enter Referral UID"
-              disabled={!!referralUid}
               onChange={(e) => setReferralUid(e.target.value)}
               required
             />
@@ -115,11 +136,19 @@ function UserProfile() {
               type="text"
               value={country}
               placeholder="Enter Country"
-              disabled={!!country}
               onChange={(e) => setCountry(e.target.value)}
               required
             />
           </div>
+        </div>
+        <div className="flex justify-center">
+          <button
+            type="button"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            onClick={handleClick}
+          >
+            Add / Update Details
+          </button>
         </div>
       </form>
     </div>
