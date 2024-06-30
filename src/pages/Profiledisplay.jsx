@@ -4,6 +4,7 @@ import { getDoc, doc } from 'firebase/firestore';
 import { ref, getDownloadURL } from 'firebase/storage';
 import { FaCheckCircle, FaMoneyBillWave, FaChartLine, FaDollarSign, FaPiggyBank } from 'react-icons/fa';
 import { auth, db, storage } from '../firebase';
+import { isMobile } from 'react-device-detect';
 
 const UserProfileDisplay = () => {
   const [loading, setLoading] = useState(true);
@@ -38,6 +39,16 @@ const UserProfileDisplay = () => {
 
     return () => unsubscribe();
   }, []);
+
+  if (!isMobile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-600 font-bold text-xl">
+          Please switch to a mobile device for the best experience.
+        </p>
+      </div>
+    );
+  }
 
   if (loading) {
     return <div>Showing Profile...</div>;

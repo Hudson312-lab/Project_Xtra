@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import addressQR from "../assets/address.jpeg";
+import { isMobile } from 'react-device-detect';
 
 const ActivateAccount = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -60,6 +61,16 @@ const ActivateAccount = () => {
       alert('Your payment details have been submitted. Please wait for activation.');
     }
   };
+
+  if (!isMobile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-600 font-bold text-xl">
+          Please switch to a mobile device for the best experience.
+        </p>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return <div>Checking Activation Status...</div>;

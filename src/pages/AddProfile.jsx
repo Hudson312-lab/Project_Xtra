@@ -5,6 +5,7 @@ import { setDoc, doc, getDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import imageCompression from "browser-image-compression";
 import { auth, db, storage } from "../firebase";
+import { isMobile } from "react-device-detect";
 
 function UserProfile() {
   const [loading, setLoading] = useState(true);
@@ -127,6 +128,16 @@ function UserProfile() {
     const downloadURL = await getDownloadURL(storageRef);
     return downloadURL;
   };
+
+  if (!isMobile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-600 font-bold text-xl">
+          Please switch to a mobile device for the best experience.
+        </p>
+      </div>
+    );
+  }
 
   if (loading) {
     return <div>Checking Profile Details...</div>;
