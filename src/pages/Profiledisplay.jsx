@@ -51,7 +51,7 @@ const UserProfileDisplay = () => {
   }
 
   if (loading) {
-    return <div>Fetching Profile...</div>;
+    return <div className='ml-2'>Fetching Profile...</div>;
   }
 
   return (
