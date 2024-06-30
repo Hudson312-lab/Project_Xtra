@@ -77,7 +77,7 @@ const ActivateAccount = () => {
         <p className="text-gray-700"> {userInfo.uid}</p>
         <p className="text-gray-700">{userInfo.email}</p>
       </div>
-      <h2 className="text-2xl font-extrabold mb-4 text-indigo-700 flex items-center">
+      <h2 className="text-2xl font-extrabold mb-2 text-indigo-700 flex items-center">
         <FaCheckCircle className="mr-2" /> Activate your account 
       </h2>
       <h3 className= "text-xl font-extrabold mb-4 text-gray-900 flex border-b-4 p-2"> Kindly follow this 3-steps process for account activation</h3>
