@@ -83,8 +83,7 @@ const InvestPage = () => {
 
   return (
     <div className="max-w-lg min-h-screen mx-auto p-8 bg-white rounded-lg shadow-lg">
-      <div className="mb-6 p-2 bg-gray-50 rounded-lg shadow-sm"></div>
-      <h2 className="text-2xl font-extrabold mb-4 text-indigo-700 flex items-center">
+     <h2 className="text-2xl font-extrabold mb-4 text-indigo-700 flex items-center">
         <FaCheckCircle className="mr-2" /> Make an Investment
       </h2>
       <h3 className="text-xl font-extrabold mb-4 text-gray-900 flex border-b-2 border-indigo-700 pb-2">
@@ -93,7 +92,7 @@ const InvestPage = () => {
 
       {/* Step 1: Enter Investment Amount */}
       <div className="mb-4">
-        <label className="block font-bold mb-2 text-lg">
+        <label className="block font-bold text-lg">
           Step 1: Enter the amount you want to invest (minimum $100):
         </label>
         <input
