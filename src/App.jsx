@@ -11,6 +11,7 @@ import Signin from './pages/Signin';
 import PasswordReset from './pages/PasswordReset';
 import ActivateAccount from './pages/ActivateAccount';
 import Test from './pages/Test';
+import UserProfile from './pages/AddProfile';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ function App() {
         <Route path="/passwordreset" element={<PasswordReset />} />
         <Route path="/activate" element={<ActivateAccount />} />
         <Route path="/test" element={<Test />} />
+        <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </Router>
   );

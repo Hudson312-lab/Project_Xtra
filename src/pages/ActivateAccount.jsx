@@ -6,7 +6,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import addressQR from "../assets/address.jpeg";
 
 const ActivateAccount = () => {
-  const [isActivated, setIsActivated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [userInfo, setUserInfo] = useState({ uid: '', email: '' });
   const navigate = useNavigate();
   const auth = getAuth();
@@ -15,12 +15,16 @@ const ActivateAccount = () => {
   const address = "TTsencRWSr3qioVVjb6BPQ4ACLGvgUuTqk";
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUserInfo({ uid: user.uid, email: user.email });
-        checkActivationStatus(user.uid);
+        const isActivated = await checkActivationStatus(user.uid);
+        if (isActivated) {
+          navigate('/profile'); // Redirect to profile page
+        } else {
+          setIsLoading(false);
+        }
       } else {
-        // Handle the case when the user is not authenticated
         setUserInfo({ uid: '', email: '' });
         navigate('/login'); // Redirect to login if needed
       }
@@ -34,12 +38,9 @@ const ActivateAccount = () => {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       const data = docSnap.data();
-      if (data.isActivated) {
-        navigate('/test'); // Redirect to profile page
-      } else {
-        setTimeout(() => checkActivationStatus(uid), 5000); // Check again after 5 seconds
-      }
+      return data.isActivated;
     }
+    return false;
   };
 
   const handleCopyAddress = () => {
@@ -60,6 +61,10 @@ const ActivateAccount = () => {
     }
   };
 
+  if (isLoading) {
+    return <div>Checking Activation Status...</div>;
+  }
+
   return (
     <div className="max-w-lg min-h-screen mx-auto p-8 bg-white rounded-lg shadow-lg">
       <div className="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
@@ -72,7 +77,7 @@ const ActivateAccount = () => {
       </h2>
       <h3 className="text-xl font-extrabold mb-4 text-gray-900 flex border-b-2 border-indigo-700 pb-2">Follow these 3 steps to activate your account:</h3>
       <p className="text-gray-700 mb-4 font-medium text-lg">
-        <span className="font-bold">Step 1:</span> Deposit <strong>10 USDT</strong> from your <strong>Binance</strong> to this address using <strong>TRC20</strong> for account activation.
+        <span className="font-bold"> <span>Step 1: </span></span> Deposit <strong>10 USDT</strong> from your <strong>Binance</strong> to this address using <strong>TRC20</strong> for account activation.
       </p>
       <label className="block font-bold mb-2 text-indigo-700">TRC20 Address:</label>
       <div className="mb-4">

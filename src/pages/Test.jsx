@@ -16,15 +16,15 @@ const Test = () => {
     };
   }, []);
 
-  if (!isMobile) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-gray-600 font-bold text-xl">
-          Please switch to a mobile device for the best experience.
-        </p>
-      </div>
-    );
-  }
+  // if (!isMobile) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center">
+  //       <p className="text-gray-600 font-bold text-xl">
+  //         Please switch to a mobile device for the best experience.
+  //       </p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="min-h-screen bg-indigo-200 p-4 flex flex-col items-center">
