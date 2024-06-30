@@ -93,7 +93,7 @@ const UserProfileDisplay = () => {
         {/* Invest Button */}
         <div className="w-full mt-4 text-center">
           <button
-            onClick={() => navigate('/invest')}  // Navigate to the investment page
+            onClick={() => navigate('/investpage')}  // Navigate to the investment page
             className="bg-yellow-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
           >
             Invest
