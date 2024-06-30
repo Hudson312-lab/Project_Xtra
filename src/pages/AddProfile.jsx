@@ -65,8 +65,8 @@ function UserProfile() {
   const handleClick = async () => {
     if (user) {
       // Check if all required fields are filled
-      if (!username || !binanceId || !trc20Address || !referralUid || !country) {
-        alert("Please fill in all required fields.");
+      if (!username || !binanceId || !trc20Address || !referralUid || !country || !profilePicture) {
+        alert("Please fill in all required fields and submit a profile picture.");
         return;
       }
 
@@ -181,6 +181,7 @@ function UserProfile() {
           accept="image/*"
           onClick={handleFileInputClick}
           onChange={handlePictureChange}
+          required
         />
       </div>
 
