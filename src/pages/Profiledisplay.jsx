@@ -51,7 +51,7 @@ const UserProfileDisplay = () => {
   }
 
   if (loading) {
-    return <div className='ml-2'>Fetching Profile...</div>;
+    return <div className='ml-2 mt-2 font-bold'>Fetching Profile...</div>;
   }
 
   return (

@@ -73,7 +73,7 @@ const ActivateAccount = () => {
   }
 
   if (isLoading) {
-    return <div className='ml-2'>Checking Activation Status...</div>;
+    return <div className='ml-2 mt-2 font-bold'>Checking Activation Status...</div>;
   }
 
   return (

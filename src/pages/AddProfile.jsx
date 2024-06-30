@@ -140,7 +140,7 @@ function UserProfile() {
   }
 
   if (loading) {
-    return <div className="ml-2">Checking Profile Details...</div>;
+    return <div className='ml-2 mt-2 font-bold'>Checking Profile Details...</div>;
   }
 
   return (
