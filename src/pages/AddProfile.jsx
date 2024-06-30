@@ -145,7 +145,7 @@ function UserProfile() {
 
   return (
     <div className="flex flex-col items-center p-6">
-      <h2 className="font-extrabold text-3xl mt-6 mb-6">Add Your Details</h2>
+      <h2 className="font-extrabold text-3xl mt-6 mb-6">Add Your Investment Account Details</h2>
       
       <div className="w-full max-w-lg mb-6">
         {pictureUrl && (
