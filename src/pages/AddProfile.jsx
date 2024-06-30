@@ -60,6 +60,7 @@ function UserProfile() {
           },
           { merge: true }
         );
+        alert("Details submitted successfully!");
       } catch (error) {
         console.error("Error updating profile:", error.message);
       }
@@ -72,7 +73,7 @@ function UserProfile() {
 
   return (
     <div className="flex flex-col items-center p-6">
-      <h2 className="font-bold mt-6 mb-6">Add Your Details</h2>
+      <h2 className="font-extrabold text-2xl mt-6 mb-6">Add Your Details</h2>
       <form className="w-full max-w-lg">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3 mb-6 md:mb-0">
