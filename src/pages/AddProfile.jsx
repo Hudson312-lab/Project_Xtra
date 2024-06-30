@@ -78,7 +78,7 @@ function UserProfile() {
           trc20Address,
           referralUid,
           country,
-          investment: 0,
+          investment: 10,
           roi: 0,
           affiliateEarnings: 0,
           totalEarnings: 0,
@@ -140,6 +140,10 @@ function UserProfile() {
     }
   };
 
+  const handleFileInputClick = (e) => {
+    e.target.value = null;
+  };
+
   if (!isMobile) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -175,6 +179,7 @@ function UserProfile() {
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           type="file"
           accept="image/*"
+          onClick={handleFileInputClick}
           onChange={handlePictureChange}
         />
       </div>
