@@ -112,11 +112,12 @@ const ActivateAccount = () => {
       </div>
       <p className='font-bold'> Step 3 : After completing process of sending payment and emailing, please click this button </p>
       <button
-        onClick={handleActivationSubmit}
-        className="w-full p-3 bg-indigo-700 hover:bg-indigo-600 text-white rounded-lg font-bold mt-4"
-      >
-        I have made the payment
-      </button>
+  onClick={handleActivationSubmit}
+  className="w-full p-3 bg-indigo-700 hover:bg-indigo-600 active:bg-indigo-800 text-white rounded-lg font-bold mt-4 transition-colors duration-300"
+>
+  I have made the payment
+</button>
+
       <p className="text-gray-700 mt-6 font-normal">
         Your profile will be activated within 24 hours. In case of any issues, feel free to email us. We are here to serve you 24/7.
       </p>
