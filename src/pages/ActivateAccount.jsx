@@ -113,7 +113,7 @@ const ActivateAccount = () => {
       <p className='font-bold'> Step 3 : After completing process of sending payment and emailing, please click this button </p>
       <button
         onClick={handleActivationSubmit}
-        className="w-full p-3 bg-indigo-700 text-white rounded-lg font-bold mt-4"
+        className="w-full p-3 bg-indigo-700 hover:bg-indigo-600 text-white rounded-lg font-bold mt-4"
       >
         I have made the payment
       </button>
