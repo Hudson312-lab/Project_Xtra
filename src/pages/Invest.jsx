@@ -98,7 +98,7 @@ const InvestPage = () => {
           type="number"
           value={investment}
           onChange={(e) => setInvestment(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-lg bg-gray-100 focus:outline-none"
+          className="w-full p-3 border border-gray-300 rounded-lg mt-2 bg-gray-100 focus:outline-none"
           min="100"
           placeholder="Enter investment amount in USD"
           required
