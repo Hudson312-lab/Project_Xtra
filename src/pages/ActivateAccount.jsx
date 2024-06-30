@@ -80,7 +80,7 @@ const ActivateAccount = () => {
       <h2 className="text-2xl font-extrabold mb-6 text-indigo-700 flex items-center">
         <FaCheckCircle className="mr-2" /> Activate your account
       </h2>
-      <p className="text-gray-700 mb-4 font-medium">
+      <p className="text-gray-700 mb-4 font-bold text-xl">
         Deposit <strong>10 USDT</strong> from your <strong>Binance</strong> to this address using <strong>TRC20</strong> for account activation.
       </p>
       <label className="block font-bold mb-2 text-indigo-700">TRC20 Address:</label>
