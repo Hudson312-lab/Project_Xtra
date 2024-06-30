@@ -13,6 +13,7 @@ import ActivateAccount from './pages/ActivateAccount';
 import Test from './pages/Test';
 import UserProfile from './pages/AddProfile';
 import UserProfileDisplay from './pages/Profiledisplay';
+import InvestPage from './pages/Invest';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
         <Route path="/test" element={<Test />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/profiledisplay" element={<UserProfileDisplay />} />
+        <Route path="/investpage" element={<InvestPage />} />
       </Routes>
     </Router>
   );

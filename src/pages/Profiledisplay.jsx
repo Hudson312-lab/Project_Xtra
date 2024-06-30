@@ -5,12 +5,14 @@ import { ref, getDownloadURL } from 'firebase/storage';
 import { FaCheckCircle, FaMoneyBillWave, FaChartLine, FaDollarSign, FaPiggyBank } from 'react-icons/fa';
 import { auth, db, storage } from '../firebase';
 import { isMobile } from 'react-device-detect';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate for navigation
 
 const UserProfileDisplay = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [profileData, setProfileData] = useState({});
   const [profilePicture, setProfilePicture] = useState("");
+  const navigate = useNavigate();  // Initialize useNavigate hook
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -88,8 +90,18 @@ const UserProfileDisplay = () => {
           </div>
         </div>
 
+        {/* Invest Button */}
+        <div className="w-full mt-4 text-center">
+          <button
+            onClick={() => navigate('/invest')}  // Navigate to the investment page
+            className="bg-yellow-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          >
+            Invest
+          </button>
+        </div>
+
         {/* Profile Details */}
-        <div className="w-full grid font-bold grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="w-full grid font-bold grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
           {[
             { icon: FaMoneyBillWave, title: "Investment", value: `$${profileData.investment}`, color: "text-yellow-600", bgColor: "bg-gray-100" },
             { icon: FaChartLine, title: "ROI", value: `$${profileData.roi}`, color: "text-green-500", bgColor: "bg-gray-50" },
