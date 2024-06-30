@@ -29,12 +29,14 @@ const UserProfileDisplay = () => {
           }
         } catch (error) {
           console.error('Error fetching user data:', error);
+        } finally {
+          setLoading(false);
         }
       } else {
         // Navigate to home or login if not authenticated
         // useNavigate() should be used here if needed
+        setLoading(false);
       }
-      setLoading(false);
     });
 
     return () => unsubscribe();
@@ -50,7 +52,7 @@ const UserProfileDisplay = () => {
     );
   }
 
-  if (loading) {
+  if (loading || !user || !profileData.username || !profilePicture) {
     return <div className='ml-2 mt-2 font-bold'>Fetching Investment Profile...</div>;
   }
 
