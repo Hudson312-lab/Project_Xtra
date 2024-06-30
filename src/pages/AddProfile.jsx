@@ -13,7 +13,6 @@ function UserProfile() {
   const [country, setCountry] = useState("");
   const [uid, setUid] = useState("");
   const [buttonText, setButtonText] = useState("Add / Update Details");
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -62,12 +61,7 @@ function UserProfile() {
           },
           { merge: true }
         );
-        setButtonText("Details Submitted!");
-        setIsButtonClicked(true);
-        setTimeout(() => {
-          setButtonText("Add / Update Details");
-          setIsButtonClicked(false);
-        }, 2000); // Reset the button text and color after 2 seconds
+        alert("Details submitted successfully!");
       } catch (error) {
         console.error("Error updating profile:", error.message);
       }
@@ -152,11 +146,7 @@ function UserProfile() {
         <div className="flex justify-center">
           <button
             type="button"
-            className={`font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
-              isButtonClicked
-                ? "bg-green-500 hover:bg-green-700"
-                : "bg-blue-500 hover:bg-blue-700"
-            } text-white`}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={handleClick}
           >
             {buttonText}
