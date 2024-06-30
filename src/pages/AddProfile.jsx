@@ -129,10 +129,15 @@ function UserProfile() {
   };
 
   const uploadPicture = async (file) => {
-    const storageRef = ref(storage, `profilePictures/${uid}`);
-    await uploadBytes(storageRef, file);
-    const downloadURL = await getDownloadURL(storageRef);
-    return downloadURL;
+    try {
+      const storageRef = ref(storage, `profilePictures/${uid}`);
+      await uploadBytes(storageRef, file);
+      const downloadURL = await getDownloadURL(storageRef);
+      return downloadURL;
+    } catch (error) {
+      console.error("Error uploading picture:", error);
+      throw error;
+    }
   };
 
   if (!isMobile) {
