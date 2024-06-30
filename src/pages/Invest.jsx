@@ -40,7 +40,7 @@ const InvestPage = () => {
     try {
       const user = auth.currentUser;
       if (user) {
-        const docRef = doc(firestore, "userdata", user.uid);
+        const docRef = doc(firestore, "investorsdata", user.uid);
         await setDoc(
           docRef,
           {
