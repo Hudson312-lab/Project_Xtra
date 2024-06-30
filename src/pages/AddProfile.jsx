@@ -12,7 +12,6 @@ function UserProfile() {
   const [referralUid, setReferralUid] = useState("");
   const [country, setCountry] = useState("");
   const [uid, setUid] = useState("");
-  const [buttonText, setButtonText] = useState("Add / Update Details");
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -74,11 +73,11 @@ function UserProfile() {
 
   return (
     <div className="flex flex-col items-center p-6">
-      <h2 className="font-extrabold text-2xl mt-6 mb-6">Add Your Details</h2>
+      <h2 className="font-extrabold text-3xl mt-6 mb-6">Add Your Details</h2>
       <form className="w-full max-w-lg">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3 mb-6 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">
               Username
             </label>
             <input
@@ -91,7 +90,7 @@ function UserProfile() {
             />
           </div>
           <div className="w-full px-3 mb-6 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">
               Binance ID
             </label>
             <input
@@ -104,7 +103,7 @@ function UserProfile() {
             />
           </div>
           <div className="w-full px-3 mb-6 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">
               TRC20 Address
             </label>
             <input
@@ -117,7 +116,7 @@ function UserProfile() {
             />
           </div>
           <div className="w-full px-3 mb-6 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">
               Referral UID
             </label>
             <input
@@ -130,7 +129,7 @@ function UserProfile() {
             />
           </div>
           <div className="w-full px-3 mb-6 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            <label className="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">
               Country
             </label>
             <input
@@ -146,10 +145,10 @@ function UserProfile() {
         <div className="flex justify-center">
           <button
             type="button"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-blue-500 hover:bg-blue-700 text-white text-lg font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             onClick={handleClick}
           >
-            {buttonText}
+            Add / Update Details
           </button>
         </div>
       </form>
