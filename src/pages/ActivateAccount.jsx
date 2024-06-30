@@ -1,28 +1,75 @@
+import React, { useEffect, useState } from 'react';
 import { FaCopy, FaCheckCircle } from 'react-icons/fa';
 import { isMobile } from 'react-device-detect';
+import { useNavigate } from 'react-router-dom';
+import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 import addressQR from "../assets/address.jpeg";
 
 const ActivateAccount = () => {
+  const [isActivated, setIsActivated] = useState(false);
+  const [userInfo, setUserInfo] = useState({ uid: '', email: '' });
+  const navigate = useNavigate();
+  const auth = getAuth();
+  const firestore = getFirestore();
+
   const address = "TTsencRWSr3qioVVjb6BPQ4ACLGvgUuTqk";
+
+  useEffect(() => {
+    const user = auth.currentUser;
+    if (user) {
+      setUserInfo({ uid: user.uid, email: user.email });
+
+      const checkActivationStatus = async () => {
+        const docRef = doc(firestore, 'users', user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          if (data.isActivated) {
+            navigate('/profile'); // Redirect to profile page
+          } else {
+            setTimeout(checkActivationStatus, 5000); // Check again after 5 seconds
+          }
+        }
+      };
+      checkActivationStatus();
+    }
+  }, [auth, firestore, navigate]);
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText(address);
     alert('Address copied to clipboard!');
   };
 
+  const handleActivationSubmit = async () => {
+    const user = auth.currentUser;
+    if (user) {
+      const docRef = doc(firestore, 'users', user.uid);
+      await setDoc(docRef, {
+        email: user.email,
+        isActivated: false,
+      });
+      alert('Your payment details have been submitted. Please wait for activation.');
+    }
+  };
 
-  if (!isMobile) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-gray-600 font-bold text-xl">
-          Please switch to a mobile device for the best experience.
-        </p>
-      </div>
-    );
-  }
+  // if (!isMobile) {
+  //   return (
+  //     <div className="min-h-screen flex items-center justify-center">
+  //       <p className="text-gray-600 font-bold text-xl">
+  //         Please switch to a mobile device for the best experience.
+  //       </p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="max-w-lg min-h-screen mx-auto p-8 bg-gray-50 rounded-lg shadow-lg">
+      <div className="mb-6 p-4 bg-white rounded-lg shadow-sm">
+        <h3 className="text-lg font-bold text-indigo-700">User Information</h3>
+        <p className="text-gray-700"><strong>UID:</strong> {userInfo.uid}</p>
+        <p className="text-gray-700"><strong>Email:</strong> {userInfo.email}</p>
+      </div>
       <h2 className="text-2xl font-extrabold mb-6 text-indigo-700 flex items-center">
         <FaCheckCircle className="mr-2" /> Activate your account
       </h2>
@@ -31,10 +78,9 @@ const ActivateAccount = () => {
       </p>
       <label className="block font-bold mb-2 text-indigo-700">TRC20 Address:</label>
       <div className="mb-4">
-        <img src={addressQR} alt="Address QR Code" className="w-full h-auto rounded-lg shadow-md" />
+        <img src={addressQR} alt="Address QR Code" className="w-full rounded-lg shadow-md" />
       </div>
       <div className="mb-4">
-        
         <div className="relative">
           <textarea
             readOnly
@@ -46,7 +92,7 @@ const ActivateAccount = () => {
             onClick={handleCopyAddress}
             className="absolute top-1/2 right-3 transform -translate-y-1/2 text-indigo-700"
           >
-            <FaCopy className='mt-6 h-12' />
+            <FaCopy />
           </button>
         </div>
       </div>
@@ -56,6 +102,12 @@ const ActivateAccount = () => {
           alphainvestmentsone@hotmail.com
         </p>
       </div>
+      <button
+        onClick={handleActivationSubmit}
+        className="w-full p-3 bg-indigo-700 text-white rounded-lg font-bold mt-4"
+      >
+        I have made the payment
+      </button>
       <p className="text-gray-700 mt-6 font-normal">
         Your profile will be activated within 24 hours. In case of any issues, feel free to email us. We are here to serve you 24/7.
       </p>
