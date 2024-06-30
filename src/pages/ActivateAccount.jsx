@@ -78,7 +78,7 @@ const ActivateAccount = () => {
 
   return (
     <div className="max-w-lg min-h-screen mx-auto p-8 bg-white rounded-lg shadow-lg">
-      <div className="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+      <div className="mb-6 p-2 bg-gray-50 rounded-lg shadow-sm">
         <h3 className="text-lg font-bold text-indigo-700">User Information : UID & Email</h3>
         <p className="text-gray-700"> {userInfo.uid}</p>
         <p className="text-gray-700">{userInfo.email}</p>
