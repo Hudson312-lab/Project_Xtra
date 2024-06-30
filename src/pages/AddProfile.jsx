@@ -224,16 +224,6 @@ function UserProfile() {
               required
             />
           </div>
-          <div className="w-full px-3 mb-6 md:mb-0">
-            <label className="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">
-              User UID
-            </label>
-            <div className="bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight">
-              {uid.split("").map((char, index) => (
-                <span key={index}>{char}{(index + 1) % 10 === 0 && <br />}</span>
-              ))}
-            </div>
-          </div>
         </div>
         <div className="flex justify-center">
           <button
