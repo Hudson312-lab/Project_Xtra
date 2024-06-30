@@ -64,6 +64,12 @@ function UserProfile() {
 
   const handleClick = async () => {
     if (user) {
+      // Check if all required fields are filled
+      if (!username || !binanceId || !trc20Address || !referralUid || !country) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
       try {
         const profileData = {
           uid, 
