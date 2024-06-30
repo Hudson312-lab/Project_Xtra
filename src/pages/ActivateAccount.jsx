@@ -35,7 +35,7 @@ const ActivateAccount = () => {
     if (docSnap.exists()) {
       const data = docSnap.data();
       if (data.isActivated) {
-        navigate('/profile'); // Redirect to profile page
+        navigate('/test'); // Redirect to profile page
       } else {
         setTimeout(() => checkActivationStatus(uid), 5000); // Check again after 5 seconds
       }
