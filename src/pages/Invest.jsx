@@ -52,7 +52,7 @@ const InvestPage = () => {
           { merge: true }
         );
         alert(
-          "Your investment has been recorded. Your account will be activated within 24 hours after payment verification."
+          "our investment will be shown within 24 hours after payment verification."
         );
         setInvestment("");
         setError("");
@@ -86,7 +86,7 @@ const InvestPage = () => {
         <FaCheckCircle className="mr-2" /> Make an Investment
       </h2>
       <h3 className="text-xl font-extrabold mb-4 text-gray-900 flex border-b-2 border-indigo-700 pb-2">
-        Follow these steps to invest:
+        Follow these three steps to invest:
       </h3>
 
       {/* Step 1: Enter Investment Amount */}
