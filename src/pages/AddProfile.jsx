@@ -50,6 +50,7 @@ function UserProfile() {
     if (user) {
       try {
         const profileData = {
+          uid, // Include the user's UID
           username,
           binanceId,
           trc20Address,
@@ -60,6 +61,7 @@ function UserProfile() {
           affiliateEarnings: 0,
           totalEarnings: 0,
           withdrawals: 0,
+          level: 'nil',
         };
 
         if (profilePicture) {
