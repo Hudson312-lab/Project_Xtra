@@ -129,7 +129,7 @@ function UserProfile() {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Checking Profile Details...</div>;
   }
 
   return (

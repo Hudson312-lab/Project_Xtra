@@ -40,7 +40,7 @@ const UserProfileDisplay = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Showing Profile...</div>;
   }
 
   return (
