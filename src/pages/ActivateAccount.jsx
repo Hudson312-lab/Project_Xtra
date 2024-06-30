@@ -77,11 +77,12 @@ const ActivateAccount = () => {
         <p className="text-gray-700"> {userInfo.uid}</p>
         <p className="text-gray-700">{userInfo.email}</p>
       </div>
-      <h2 className="text-2xl font-extrabold mb-6 text-indigo-700 flex items-center">
-        <FaCheckCircle className="mr-2" /> Activate your account
+      <h2 className="text-2xl font-extrabold mb-4 text-indigo-700 flex items-center">
+        <FaCheckCircle className="mr-2" /> Activate your account 
       </h2>
+      <h3 className= "text-xl font-extrabold mb-4 text-gray-900 flex border-b-4 p-2"> Kindly follow this 3-step process for account activation</h3>
       <p className="text-gray-700 mb-4 font-bold text-xl">
-        Deposit <strong>10 USDT</strong> from your <strong>Binance</strong> to this address using <strong>TRC20</strong> for account activation.
+       Step 1 : Deposit <strong>10 USDT</strong> from your <strong>Binance</strong> to this address using <strong>TRC20</strong> for account activation.
       </p>
       <label className="block font-bold mb-2 text-indigo-700">TRC20 Address:</label>
       <div className="mb-4">
@@ -104,11 +105,12 @@ const ActivateAccount = () => {
         </div>
       </div>
       <div className="mb-4">
-        <label className="block text-indigo-700 font-bold mb-2">Submit your Payment TRXID and Screenshot to:</label>
+        <label className="block font-bold mb-2"> Step 2 : Submit your Payment TRXID and Screenshot to:</label>
         <p className="w-full p-3 border border-gray-300 rounded-lg bg-gray-100 text-indigo-600 flex items-center font-bold text-lg">
           alphainvestmentsone@hotmail.com
         </p>
       </div>
+      <p className='font-bold'> Step 3 : After completing process of sending payment and emailing please click this button </p>
       <button
         onClick={handleActivationSubmit}
         className="w-full p-3 bg-indigo-700 text-white rounded-lg font-bold mt-4"
