@@ -96,8 +96,8 @@ const UserProfileDisplay = () => {
 
         {/* UID Display */}
         <div className="w-full mt-8 text-center">
-          <h3 className="text-lg font-semibold text-indigo-800 bg-indigo-400 p-2 rounded">UID:</h3>
-          <p className="text-lg font-bold text-red-300">
+          <h3 className="text-lg font-semibold text-white bg-indigo-500 p-2 rounded">UID:</h3>
+          <p className="text-lg font-bold text-red-500 mt-3">
             {profileData.uid}
           </p>
         </div>
