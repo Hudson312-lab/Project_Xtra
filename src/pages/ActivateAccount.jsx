@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaCopy, FaCheckCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
@@ -58,7 +58,7 @@ const ActivateAccount = () => {
         email: user.email,
         isActivated: false,
       });
-      alert('Your account will be activated within 24 hours after payment verification.');
+      alert('Your investment account will be activated within 24 hours after payment verification.');
     }
   };
 
