@@ -84,7 +84,7 @@ const ActivateAccount = () => {
         <p className="text-gray-700">{userInfo.email}</p>
       </div>
       <h2 className="text-2xl font-extrabold mb-4 text-indigo-700 flex items-center">
-        <FaCheckCircle className="mr-2" /> Activate your investment account
+        <FaCheckCircle className="mr-2" /> Activate investment account
       </h2>
       <h3 className="text-xl font-extrabold mb-4 text-gray-900 flex border-b-2 border-indigo-700 pb-2">Follow these 3 steps to activate your account:</h3>
       <p className="text-gray-700 mb-4 font-medium text-lg">

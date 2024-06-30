@@ -60,7 +60,7 @@ const UserProfileDisplay = () => {
     );
   }
 
-  if (loading || !user || !profileData.username || !profilePicture) {
+  if (loading) {
     return (
       <div className="ml-2 mt-2 font-bold">Fetching Investment Profile...</div>
     );
