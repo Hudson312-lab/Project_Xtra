@@ -3,7 +3,7 @@ import { FaCopy, FaCheckCircle } from 'react-icons/fa';
 import { isMobile } from 'react-device-detect';
 import { useNavigate } from 'react-router-dom';
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import addressQR from "../assets/address.jpeg";
 
 const ActivateAccount = () => {
@@ -16,25 +16,32 @@ const ActivateAccount = () => {
   const address = "TTsencRWSr3qioVVjb6BPQ4ACLGvgUuTqk";
 
   useEffect(() => {
-    const user = auth.currentUser;
-    if (user) {
-      setUserInfo({ uid: user.uid, email: user.email });
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserInfo({ uid: user.uid, email: user.email });
+        checkActivationStatus(user.uid);
+      } else {
+        // Handle the case when the user is not authenticated
+        setUserInfo({ uid: '', email: '' });
+        navigate('/login'); // Redirect to login if needed
+      }
+    });
 
-      const checkActivationStatus = async () => {
-        const docRef = doc(firestore, 'users', user.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          const data = docSnap.data();
-          if (data.isActivated) {
-            navigate('/profile'); // Redirect to profile page
-          } else {
-            setTimeout(checkActivationStatus, 5000); // Check again after 5 seconds
-          }
-        }
-      };
-      checkActivationStatus();
-    }
+    return () => unsubscribe();
   }, [auth, firestore, navigate]);
+
+  const checkActivationStatus = async (uid) => {
+    const docRef = doc(firestore, 'users', uid);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      if (data.isActivated) {
+        navigate('/profile'); // Redirect to profile page
+      } else {
+        setTimeout(() => checkActivationStatus(uid), 5000); // Check again after 5 seconds
+      }
+    }
+  };
 
   const handleCopyAddress = () => {
     navigator.clipboard.writeText(address);
@@ -65,7 +72,7 @@ const ActivateAccount = () => {
 
   return (
     <div className="max-w-lg min-h-screen mx-auto p-8 bg-gray-50 rounded-lg shadow-lg">
-      <div className="mb-6 p-4 bg-white rounded-lg shadow-sm w-full">
+      <div className="mb-6 p-4 bg-white rounded-lg shadow-sm">
         <h3 className="text-lg font-bold text-indigo-700">User Information</h3>
         <p className="text-gray-700"><strong>UID:</strong> {userInfo.uid}</p>
         <p className="text-gray-700"><strong>Email:</strong> {userInfo.email}</p>
