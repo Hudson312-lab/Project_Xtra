@@ -37,6 +37,17 @@ function UserProfile() {
             setReferralUid(data.referralUid || "");
             setCountry(data.country || "");
             setPictureUrl(data.pictureUrl || "");
+
+            // Redirect if data is already filled
+            if (
+              data.username &&
+              data.binanceId &&
+              data.trc20Address &&
+              data.referralUid &&
+              data.country
+            ) {
+              navigate("/profiledisplay");
+            }
           }
         } catch (error) {
           console.error("Error fetching user data:", error);
@@ -75,6 +86,7 @@ function UserProfile() {
 
         await setDoc(doc(db, "profiles", uid), profileData, { merge: true });
         alert("Details submitted successfully!");
+        navigate("/profiledisplay"); // Redirect after successful submission
       } catch (error) {
         console.error("Error updating profile:", error.message);
       }
@@ -211,6 +223,16 @@ function UserProfile() {
               onChange={(e) => setCountry(e.target.value)}
               required
             />
+          </div>
+          <div className="w-full px-3 mb-6 md:mb-0">
+            <label className="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">
+              User UID
+            </label>
+            <div className="bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight">
+              {uid.split("").map((char, index) => (
+                <span key={index}>{char}{(index + 1) % 10 === 0 && <br />}</span>
+              ))}
+            </div>
           </div>
         </div>
         <div className="flex justify-center">

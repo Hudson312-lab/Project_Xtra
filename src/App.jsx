@@ -12,6 +12,7 @@ import PasswordReset from './pages/PasswordReset';
 import ActivateAccount from './pages/ActivateAccount';
 import Test from './pages/Test';
 import UserProfile from './pages/AddProfile';
+import UserProfileDisplay from './pages/Profiledisplay';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
         <Route path="/activate" element={<ActivateAccount />} />
         <Route path="/test" element={<Test />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/profiledisplay" element={<UserProfileDisplay />} />
       </Routes>
     </Router>
   );
