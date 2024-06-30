@@ -58,7 +58,7 @@ const ActivateAccount = () => {
         email: user.email,
         isActivated: false,
       });
-      alert('Your payment details have been submitted. Please wait for activation.');
+      alert('Your account will be activated within 24 hours after payment verification.');
     }
   };
 
