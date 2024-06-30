@@ -16,7 +16,9 @@ const PasswordReset = () => {
 
   useEffect(() => {
     if (authState.status === 'succeeded') {
-      console.log('Password reset email sent');
+      alert('Password reset email sent');
+    } else if (authState.status === 'failed') {
+      alert('Failed to send password reset email');
     }
   }, [authState.status]);
 

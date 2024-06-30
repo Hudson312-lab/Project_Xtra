@@ -14,7 +14,7 @@ const Home = () => {
       setNotification("You are already logged in.");
       setTimeout(() => {
         navigate("/activate");
-      }, 500); // Redirect after 2 seconds
+      }, 500); 
     }
   }, [authState.user, navigate]);
 
