@@ -60,22 +60,22 @@ const ActivateAccount = () => {
     }
   };
 
-  // if (!isMobile) {
-  //   return (
-  //     <div className="min-h-screen flex items-center justify-center">
-  //       <p className="text-gray-600 font-bold text-xl">
-  //         Please switch to a mobile device for the best experience.
-  //       </p>
-  //     </div>
-  //   );
-  // }
+  if (!isMobile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-600 font-bold text-xl">
+          Please switch to a mobile device for the best experience.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-lg min-h-screen mx-auto p-8 bg-gray-50 rounded-lg shadow-lg">
       <div className="mb-6 p-4 bg-white rounded-lg shadow-sm">
-        <h3 className="text-lg font-bold text-indigo-700">User Information</h3>
-        <p className="text-gray-700"><strong>UID:</strong> {userInfo.uid}</p>
-        <p className="text-gray-700"><strong>Email:</strong> {userInfo.email}</p>
+        <h3 className="text-lg font-bold text-indigo-700">UID & Email</h3>
+        <p className="text-gray-700"> {userInfo.uid}</p>
+        <p className="text-gray-700">{userInfo.email}</p>
       </div>
       <h2 className="text-2xl font-extrabold mb-6 text-indigo-700 flex items-center">
         <FaCheckCircle className="mr-2" /> Activate your account
