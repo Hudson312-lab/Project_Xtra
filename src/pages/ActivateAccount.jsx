@@ -52,6 +52,7 @@ const ActivateAccount = () => {
     if (user) {
       const docRef = doc(firestore, 'users', user.uid);
       await setDoc(docRef, {
+        uid: user.uid,
         email: user.email,
         isActivated: false,
       });
@@ -61,10 +62,10 @@ const ActivateAccount = () => {
 
   return (
     <div className="max-w-lg min-h-screen mx-auto p-8 bg-white rounded-lg shadow-lg">
-      <div className="mb-6 p-4 bg-gray-100 rounded-lg shadow-sm">
-        <h3 className="text-lg font-bold text-indigo-700">User Information</h3>
-        <p className="text-gray-700"><strong>UID:</strong> {userInfo.uid}</p>
-        <p className="text-gray-700"><strong>Email:</strong> {userInfo.email}</p>
+      <div className="mb-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+        <h3 className="text-lg font-bold text-indigo-700">User Information : UID & Email</h3>
+        <p className="text-gray-700"> {userInfo.uid}</p>
+        <p className="text-gray-700">{userInfo.email}</p>
       </div>
       <h2 className="text-2xl font-extrabold mb-4 text-indigo-700 flex items-center">
         <FaCheckCircle className="mr-2" /> Activate your account
