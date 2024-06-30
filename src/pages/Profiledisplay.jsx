@@ -51,7 +51,7 @@ const UserProfileDisplay = () => {
   }
 
   if (loading) {
-    return <div>Showing Profile...</div>;
+    return <div>Fetching Profile...</div>;
   }
 
   return (
