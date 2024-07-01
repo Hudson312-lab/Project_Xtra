@@ -1,15 +1,55 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const InstallBinancePage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [userInfo, setUserInfo] = useState({ uid: '', email: '' });
   const navigate = useNavigate();
+  const auth = getAuth();
+  const firestore = getFirestore();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        setUserInfo({ uid: user.uid, email: user.email });
+        const isActivated = await checkActivationStatus(user.uid);
+        if (isActivated) {
+          navigate('/activate'); // Redirect to activate page
+        } else {
+          setIsLoading(false);
+        }
+      } else {
+        setUserInfo({ uid: '', email: '' });
+        navigate('/'); // Redirect to home page if not authenticated
+      }
+    });
+
+    return () => unsubscribe();
+  }, [auth, firestore, navigate]);
+
+  const checkActivationStatus = async (uid) => {
+    const docRef = doc(firestore, 'users', uid);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      return data.isActivated;
+    }
+    return false;
+  };
 
   const handleNextPage = () => {
     navigate('/activate');
   };
 
+  if (isLoading) {
+    return <div className="ml-2 mt-2 font-bold">Checking Binance Page Status...</div>;
+  }
+
   return (
     <div className="flex flex-col items-center p-10 min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-6 text-yellow-500">Install Binanace</h1>
+      <h1 className="text-3xl font-bold mb-6 text-yellow-500">Install Binance</h1>
       <div className="flex space-x-4 mb-6">
         <a 
           href="https://play.google.com/store/apps/details?id=com.binance.dev&hl=en&pli=1" 
@@ -32,7 +72,7 @@ const InstallBinancePage = () => {
         You must be a verified Binance user and should understand its core operations 
       </p>
       <ul className="list-disc list-inside mb-4">
-      <li>Binanace account registeration & verification</li>
+        <li>Binance account registration & verification</li>
         <li>Buying and Selling USDT</li>
         <li>Sending and Receiving USDT</li>
         <li>Basic Binance management</li>
