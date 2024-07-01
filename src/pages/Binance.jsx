@@ -38,7 +38,7 @@ const InstallBinancePage = () => {
       </ul>
       <button
         onClick={handleNextPage}
-        className="px-6 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-300"
+        className="px-6 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-300 mt-4"
       >
         Click if you are a verified Binance user and understand its basic operations
       </button>
