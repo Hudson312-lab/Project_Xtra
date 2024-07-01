@@ -55,11 +55,11 @@ const InstallBinancePage = () => {
   }
 
   if (isLoading) {
-    return <div className="ml-2 mt-2 font-bold">Checking Binanace Membership From User...</div>;
+    return <div className="ml-2 mt-2 font-bold">Checking Binanace Membership...</div>;
   }
 
   return (
-    <div className="min-h-screen min-w-screen flex flex-col items-center justify-center p-4 bg-gray-100 overflow-hidden">
+    <div className="min-h-screen min-w-screen flex flex-col items-center  p-4 bg-gray-100 overflow-hidden">
       <h1 className="text-3xl font-extrabold mb-6 text-yellow-500">Install Binance</h1>
       <div className="flex space-x-4 mb-6">
         <a 
