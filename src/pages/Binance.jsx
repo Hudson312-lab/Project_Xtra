@@ -9,7 +9,7 @@ const InstallBinancePage = () => {
 
   return (
     <div className="flex flex-col items-center p-10 min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-6 text-yellow-500">Install Binance</h1>
+      <h1 className="text-3xl font-bold mb-6 text-yellow-500">Binanace</h1>
       <div className="flex space-x-4 mb-6">
         <a 
           href="https://play.google.com/store/apps/details?id=com.binance.dev&hl=en&pli=1" 
