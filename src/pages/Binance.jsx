@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { isMobile } from 'react-device-detect';
 
 const InstallBinancePage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,6 +44,16 @@ const InstallBinancePage = () => {
     navigate('/activate');
   };
 
+  if (!isMobile) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-gray-600 font-bold text-xl">
+          Please switch to a mobile device for the best experience.
+        </p>
+      </div>
+    );
+  }
+
   if (isLoading) {
     return <div className="ml-2 mt-2 font-bold">Checking Activation Status...</div>;
   }
@@ -68,7 +79,7 @@ const InstallBinancePage = () => {
           Install from Apple App Store
         </a>
       </div>
-      <p className="text-lg font-semibold mb-4">
+      <p className="text-lg mb-4 font-bold">
         You must be a verified Binance user and should understand its core operations 
       </p>
       <ul className="list-disc list-inside mb-4">
