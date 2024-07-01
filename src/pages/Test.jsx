@@ -1,30 +1,9 @@
-import  { useEffect } from 'react';
-import { isMobile } from 'react-device-detect';
+
 import { FaCheckCircle, FaMoneyBillWave, FaChartLine, FaDollarSign, FaPiggyBank } from 'react-icons/fa';
 import data from "../assets/data.jpg";
 
 const Test = () => {
   
-
-  useEffect(() => {
-    // Disable scrolling on component mount
-    document.body.style.overflow = 'hidden';
-
-    // Enable scrolling on component unmount
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, []);
-
-  // if (!isMobile) {
-  //   return (
-  //     <div className="min-h-screen flex items-center justify-center">
-  //       <p className="text-gray-600 font-bold text-xl">
-  //         Please switch to a mobile device for the best experience.
-  //       </p>
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className="min-h-screen bg-indigo-200 p-4 flex flex-col items-center">
