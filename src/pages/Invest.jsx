@@ -52,7 +52,7 @@ const InvestPage = () => {
           { merge: true }
         );
         alert(
-          "our investment will be shown within 24 hours after payment verification."
+          "our investment will be reflected within 24 hours after payment verification."
         );
         setInvestment("");
         setError("");
