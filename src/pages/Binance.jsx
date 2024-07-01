@@ -44,7 +44,7 @@ const InstallBinancePage = () => {
   };
 
   if (isLoading) {
-    return <div className="ml-2 mt-2 font-bold">Checking Binance Page Status...</div>;
+    return <div className="ml-2 mt-2 font-bold">Checking Activation Status...</div>;
   }
 
   return (
