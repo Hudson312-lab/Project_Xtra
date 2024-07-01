@@ -73,8 +73,8 @@ const InstallBinancePage = () => {
       </p>
       <ul className="list-disc list-inside mb-4">
         <li>Binance account registration & verification</li>
-        <li>Buying and Selling USDT</li>
-        <li>Sending and Receiving USDT</li>
+        <li>Buying and Sending USDT</li>
+        <li>Receiving and Selling USDT</li>
         <li>Basic Binance management</li>
       </ul>
       <button
