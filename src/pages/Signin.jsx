@@ -30,7 +30,7 @@ const Signin = () => {
   useEffect(() => {
     if (authState.status === "succeeded") {
       console.log("Signin successful");
-      navigate("/activate");
+      navigate("/binance");
     }
   }, [authState.status, navigate]);
 

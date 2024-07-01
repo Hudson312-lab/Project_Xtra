@@ -13,7 +13,7 @@ const Home = () => {
     if (authState.user) {
       setNotification("You are already logged in.");
       setTimeout(() => {
-        navigate("/activate");
+        navigate("/binanace");
       }, 500); 
     }
   }, [authState.user, navigate]);

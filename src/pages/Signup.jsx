@@ -19,7 +19,7 @@ const Signup = () => {
 
   useEffect(() => {
     if (authState.user) {
-      navigate("/activate");
+      navigate("/binance");
     }
   }, [authState.user, navigate]);
 
