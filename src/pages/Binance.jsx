@@ -29,11 +29,12 @@ const InstallBinancePage = () => {
         </a>
       </div>
       <p className="text-lg font-semibold mb-4">
-        You must be a verified Binance user and should understand its core operations
+        You must be a verified Binance user and should understand its core operations 
       </p>
       <ul className="list-disc list-inside mb-4">
-        <li>Buy and Sell USDT</li>
-        <li>Send and Receive USDT</li>
+      <li>Binanace account registeration & verification</li>
+        <li>Buying and Selling USDT</li>
+        <li>Sending and Receiving USDT</li>
         <li>Basic Binance management</li>
       </ul>
       <button
