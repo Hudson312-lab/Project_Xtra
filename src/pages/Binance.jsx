@@ -46,7 +46,7 @@ const InstallBinancePage = () => {
 
   if (!isMobile) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="min-h-screen flex items-center justify-center bg-gray-100 overflow-hidden">
         <p className="text-gray-600 font-bold text-xl text-center">
           Please switch to a mobile device for the best experience.
         </p>
@@ -56,15 +56,13 @@ const InstallBinancePage = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-gray-100">
-        <p className="text-gray-600 font-bold text-xl">Checking Binance Membership...</p>
-      </div>
+      <div className='ml-2 mt-2 font-bold'>Checking Binance Membership...</div>
     );
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-4 bg-gray-100 overflow-hidden">
-      <h1 className="text-3xl mt-2 font-extrabold mb-6 text-yellow-600 text-center leading-snug">
+    <div className="min-h-screen flex flex-col items-center p-2 bg-gray-100 overflow-hidden">
+      <h1 className="text-3xl mt-2 font-extrabold mb-6 text-yellow-600 text-center leading-snug border-2 rounded-md p-2 ">
         Install, Get Registered, and Start Using BINANCE
         <span className="block mt-2 text-2xl text-yellow-500">This investment and earning opportunity is for BINANCE users only !</span>
       </h1>
