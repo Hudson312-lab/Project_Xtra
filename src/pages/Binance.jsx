@@ -62,7 +62,7 @@ const InstallBinancePage = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center p-4 bg-gray-100 overflow-hidden">
-      <h1 className="text-3xl mt-2 font-extrabold mb-6 text-yellow-700 text-center leading-snug border-2 rounded-md p-2 ">
+      <h1 className="text-3xl mt-2 font-extrabold mb-4 text-yellow-700 text-center leading-snug border-2 rounded-md p-2 ">
         Install, Get Registered, and Start Using BINANCE
         <span className="block mt-2 text-2xl text-yellow-600">This investment and earning opportunity is for BINANCE users only !</span>
       </h1>
@@ -84,10 +84,10 @@ const InstallBinancePage = () => {
           Install from Apple App Store
         </a>
       </div>
-      <p className="text-lg mb-4 font-bold text-center">
+      <p className="text-lg mb-2 font-bold text-center">
         You must be a verified BINANCE user and should understand its following core operations
       </p>
-      <ul className="list-disc list-inside mb-4 text-center">
+      <ul className="list-disc list-inside mb-2 text-center">
         <li>Binance account registration & verification</li>
         <li>Binanace account ID and TRC20 Address </li>
         <li>Buying and Sending USDT</li>
@@ -96,7 +96,7 @@ const InstallBinancePage = () => {
       </ul>
       <button
         onClick={handleNextPage}
-        className="px-6 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-300 mt-4"
+        className="px-6 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-300 mt-2"
       >
         Click here, if you are a verified BINANCE user and understand its basic operations
       </button>
