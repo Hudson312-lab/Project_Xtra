@@ -87,7 +87,7 @@ const InstallBinancePage = () => {
         </a>
       </div>
       <p className="text-lg mb-4 font-bold text-center">
-        You must be a verified BINANACE user and should understand its following core operations
+        You must be a verified BINANCE user and should understand its following core operations
       </p>
       <ul className="list-disc list-inside mb-4 text-center">
         <li>Binance account registration & verification</li>
