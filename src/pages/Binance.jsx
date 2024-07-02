@@ -61,7 +61,7 @@ const InstallBinancePage = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-2 bg-gray-100 overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center p-4 bg-gray-100 overflow-hidden">
       <h1 className="text-3xl mt-2 font-extrabold mb-6 text-yellow-700 text-center leading-snug border-2 rounded-md p-2 ">
         Install, Get Registered, and Start Using BINANCE
         <span className="block mt-2 text-2xl text-yellow-600">This investment and earning opportunity is for BINANCE users only !</span>
