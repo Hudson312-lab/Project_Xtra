@@ -1,20 +1,21 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { onAuthStateChanged } from 'firebase/auth';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { auth } from './firebase'; 
-import { setUser } from './features/auth/authSlice';
-import Home from './pages/Home';
-import Navbar from './componenets/Navbar';
-import Signup from './pages/Signup';
-import Signin from './pages/Signin';
-import PasswordReset from './pages/PasswordReset';
-import ActivateAccount from './pages/ActivateAccount';
-import Test from './pages/Test';
-import UserProfile from './pages/AddProfile';
-import UserProfileDisplay from './pages/Profiledisplay';
-import InvestPage from './pages/Invest';
-import InstallBinancePage from './pages/Binance';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { onAuthStateChanged } from "firebase/auth";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { auth } from "./firebase";
+import { setUser } from "./features/auth/authSlice";
+import Home from "./pages/Home";
+import Navbar from "./componenets/Navbar";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
+import PasswordReset from "./pages/PasswordReset";
+import ActivateAccount from "./pages/ActivateAccount";
+import Test from "./pages/Test";
+import UserProfile from "./pages/AddProfile";
+import UserProfileDisplay from "./pages/Profiledisplay";
+import InvestPage from "./pages/Invest";
+import InstallBinancePage from "./pages/Binance";
+import ReferredUsers from "./pages/ReferredUsers";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ function App() {
         <Route path="/profiledisplay" element={<UserProfileDisplay />} />
         <Route path="/investpage" element={<InvestPage />} />
         <Route path="/binanace" element={<InstallBinancePage />} />
+        <Route path="/referredusers" element={<ReferredUsers />} />
       </Routes>
     </Router>
   );

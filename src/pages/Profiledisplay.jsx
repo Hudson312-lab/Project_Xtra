@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { getDoc, doc } from "firebase/firestore";
 import { ref, getDownloadURL } from "firebase/storage";
+import { Link } from "react-router-dom";
 import {
   FaCheckCircle,
   FaMoneyBillWave,
@@ -174,6 +175,7 @@ const UserProfileDisplay = () => {
           <h3 className="text-lg font-semibold text-white mt-6 bg-indigo-500 p-2 rounded">
             UID:
           </h3>
+          <Link to={`/referredusers`}>See your referred users data</Link>
           <p className="text-lg font-bold text-red-500 mt-3">
             {profileData.uid}
           </p>
