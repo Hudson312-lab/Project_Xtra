@@ -47,7 +47,7 @@ function ReferredUsers() {
             <li key={user.id} className="mb-2 p-4 bg-gray-200 rounded shadow-md">
               <p><strong>Username:</strong> {user.username}</p>
               <p><strong>Investment</strong> {user.investment}</p>
-              <p><strong>Referral UID:</strong> {user.referralUid}</p>
+              <p><strong>Referral UID:</strong> {user.uid}</p>
             </li>
           ))}
         </ul>
