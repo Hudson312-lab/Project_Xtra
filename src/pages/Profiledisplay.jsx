@@ -172,13 +172,14 @@ const UserProfileDisplay = () => {
 
         {/* UID Display */}
         <div className="w-full text-center">
-          <h3 className="text-lg font-semibold text-white mt-6 bg-indigo-500 p-2 rounded">
+          <h3 className="text-lg font-semibold text-white mt-6 bg-indigo-500 p-2 rounded mb-2">
             UID:
           </h3>
-          <Link to={`/referredusers`}>See your referred users data</Link>
-          <p className="text-lg font-bold text-red-500 mt-3">
+          
+<p className="text-lg font-bold text-red-500 mt-3 mb-4">
             {profileData.uid}
           </p>
+          <Link className="font-bold border-2 p-3 bg-green-600 rounded-md mt-2" to={`/referredusers`}>See your referred users data</Link>
         </div>
       </div>
     </div>
