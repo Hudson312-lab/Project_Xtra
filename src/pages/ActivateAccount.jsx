@@ -86,6 +86,7 @@ const ActivateAccount = () => {
       <h2 className="text-2xl font-extrabold mb-4 text-indigo-700 flex items-center">
         <FaCheckCircle className="mr-2" /> Activate investment account
       </h2>
+      <p> Note : Your activation charges will be added to your investment wallet</p>
       <h3 className="text-xl font-extrabold mb-4 text-gray-900 flex border-b-2 border-indigo-700 pb-2">Follow these 3 steps to activate your account:</h3>
       <p className="text-gray-700 mb-4 font-medium text-lg">
         <span className="font-bold"> <span>Step 1: </span></span> Deposit <strong>10 USDT</strong> from your <strong>Binance</strong> to this address using <strong>TRC20</strong> for account activation.
