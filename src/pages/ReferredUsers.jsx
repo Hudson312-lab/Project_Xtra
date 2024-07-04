@@ -8,6 +8,7 @@ import { isMobile } from 'react-device-detect';
 function ReferredUsers() {
   const [loading, setLoading] = useState(true);
   const [referredUsers, setReferredUsers] = useState([]);
+  const [netAffiliateIncome, setNetAffiliateIncome] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,6 +22,11 @@ function ReferredUsers() {
           const querySnapshot = await getDocs(q);
           const users = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
           setReferredUsers(users);
+
+          // Calculate net affiliate income
+          const totalInvestment = users.reduce((sum, user) => sum + (user.investment || 0), 0);
+          const affiliateIncome = totalInvestment * 0.1;
+          setNetAffiliateIncome(affiliateIncome);
         } catch (error) {
           console.error("Error fetching referred users:", error);
         }
@@ -53,15 +59,21 @@ function ReferredUsers() {
       {referredUsers.length === 0 ? (
         <p>No data to display.</p>
       ) : (
-        <ul className="w-full max-w-lg">
-          {referredUsers.map(user => (
-            <li key={user.id} className="mb-2 p-4 bg-gray-200 rounded shadow-md">
-              <p><strong>Username:</strong> {user.username}</p>
-              <p><strong>Investment:</strong> {user.investment}</p>
-              <p><strong>UID:</strong> {user.uid}</p>
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className="w-full max-w-lg">
+            {referredUsers.map(user => (
+              <li key={user.id} className="mb-2 p-4 bg-gray-200 rounded shadow-md">
+                <p><strong>Username:</strong> {user.username}</p>
+                <p><strong>Investment:</strong> ${user.investment}</p>
+                <p><strong>Affiliate Income (10%):</strong> ${user.investment * 0.1}</p>
+                <p><strong>UID:</strong> {user.uid}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6 p-4 bg-green-200 rounded shadow-md">
+            <p className="font-bold"><strong>Net Affiliate Income:</strong> ${netAffiliateIncome}</p>
+          </div>
+        </>
       )}
     </div>
   );
