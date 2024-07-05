@@ -46,11 +46,11 @@ const Test = () => {
         {/* Profile Details */}
         <div className="w-full grid font-bold grid-cols-1 sm:grid-cols-2 gap-4">
           {[
-            { icon: FaMoneyBillWave, title: "Investment", value: "$28600", color: "text-yellow-600", bgColor: "bg-gray-100" },
-            { icon: FaChartLine, title: "ROI", value: "$37000", color: "text-green-500", bgColor: "bg-gray-50" },
-            { icon: FaDollarSign, title: "Affiliate Earnings", value: "$23040", color: "text-purple-600", bgColor: "bg-gray-100" },
-            { icon: FaDollarSign, title: "Total Income", value: "$60040", color: "text-blue-600", bgColor: "bg-gray-100" },
-            { icon: FaPiggyBank, title: "Withdrawals", value: "$57820", color: "text-pink-600", bgColor: "bg-gray-100" },
+            { icon: FaMoneyBillWave, title: "Investment", value: "$7300", color: "text-yellow-600", bgColor: "bg-gray-100" },
+            { icon: FaChartLine, title: "ROI", value: "$9850", color: "text-green-500", bgColor: "bg-gray-50" },
+            { icon: FaDollarSign, title: "Affiliate Earnings", value: "$6520", color: "text-purple-600", bgColor: "bg-gray-100" },
+            { icon: FaDollarSign, title: "Total Income", value: "$16370", color: "text-blue-600", bgColor: "bg-gray-100" },
+            { icon: FaPiggyBank, title: "Withdrawals", value: "$14580", color: "text-pink-600", bgColor: "bg-gray-100" },
           ].map((item, index) => (
             <div key={index} className={`shadow-lg rounded-lg overflow-hidden p-4 flex items-center ${item.bgColor}`}>
               <item.icon className={`w-8 h-8 mr-4 ${item.color}`} />
