@@ -7,14 +7,14 @@ const Test = () => {
   // Bronze below 10k
   // Silver 10k-20k
   // Golden 20k-30k
-  // Doamond 30k-40k
+  // Diamond 30k-40k
   // Platinum 40-50k
 
   return (
     <div className="min-h-screen bg-indigo-200 p-4 flex flex-col items-center">
       <div className="w-full max-w-md flex flex-col space-y-4">
         <div className="bg-gradient-to-b from-indigo-800 to-indigo-600 shadow-lg rounded-lg overflow-hidden p-4 flex flex-col items-center space-y-4">
-          <h2 className="text-3xl text-center font-bold bg-indigo-600 w-full p-2 rounded text-white">Hassan Farooq</h2>
+          <h2 className="text-3xl text-center font-bold bg-indigo-600 w-full p-2 rounded text-white">Safdar Hussain</h2>
           <div className="w-full flex items-center ml-14">
             <div className="flex items-center space-x-4"> 
               <img
@@ -30,7 +30,7 @@ const Test = () => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <h3 className="text-lg font-semibold text-white">Level:</h3>
-                    <p className="text-lg font-bold text-yellow-400">Golden</p>
+                    <p className="text-lg font-bold text-yellow-400">Bronze</p>
                   </div>
 
                   <p className="text-base text-white flex items-center mt-2">
@@ -46,11 +46,11 @@ const Test = () => {
         {/* Profile Details */}
         <div className="w-full grid font-bold grid-cols-1 sm:grid-cols-2 gap-4">
           {[
-            { icon: FaMoneyBillWave, title: "Investment", value: "$17500", color: "text-yellow-600", bgColor: "bg-gray-100" },
-            { icon: FaChartLine, title: "ROI", value: "$26830", color: "text-green-500", bgColor: "bg-gray-50" },
-            { icon: FaDollarSign, title: "Affiliate Earnings", value: "$11980", color: "text-purple-600", bgColor: "bg-gray-100" },
-            { icon: FaDollarSign, title: "Total Income", value: "$38810", color: "text-blue-600", bgColor: "bg-gray-100" },
-            { icon: FaPiggyBank, title: "Withdrawals", value: "$34760", color: "text-pink-600", bgColor: "bg-gray-100" },
+            { icon: FaMoneyBillWave, title: "Investment", value: "$8900", color: "text-yellow-600", bgColor: "bg-gray-100" },
+            { icon: FaChartLine, title: "ROI", value: "$13820", color: "text-green-500", bgColor: "bg-gray-50" },
+            { icon: FaDollarSign, title: "Affiliate Earnings", value: "$6540", color: "text-purple-600", bgColor: "bg-gray-100" },
+            { icon: FaDollarSign, title: "Total Income", value: "$20360", color: "text-blue-600", bgColor: "bg-gray-100" },
+            { icon: FaPiggyBank, title: "Withdrawals", value: "$16560", color: "text-pink-600", bgColor: "bg-gray-100" },
           ].map((item, index) => (
             <div key={index} className={`shadow-lg rounded-lg overflow-hidden p-4 flex items-center ${item.bgColor}`}>
               <item.icon className={`w-8 h-8 mr-4 ${item.color}`} />
